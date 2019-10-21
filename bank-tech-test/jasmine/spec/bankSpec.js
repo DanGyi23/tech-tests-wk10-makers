@@ -15,5 +15,10 @@ describe("Bank", function() {
     expect(account.statement()).toContain('21/10/2019')
   });
 
+  it('Perform ANY ACTION with ANY amount and the correct date is included in the string WITH the column headers', function(){
+    account.withdraw(5)
+    expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019')
+  });
+
   
 });
