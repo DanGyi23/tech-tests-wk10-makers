@@ -78,6 +78,13 @@ describe GildedRose do
         @gilded_rose.update_quality
         expect(@items[0].quality).to eq 6
       end
+
+      it 'Brie quality increases doubly after sell_in date passed' do
+        6.times do
+            @gilded_rose.update_quality
+          end
+        expect(@items[0].quality).to eq 12
+      end
     end
   end
 end
