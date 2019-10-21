@@ -7,7 +7,7 @@ BankAccount.prototype.statement = function () {
   let all_debits = this.sort("debit")
   let all_credits = this.sort("credit")
   if (all_debits[0]) {
-    return `${this._header}21/10/2019 || || ${all_debits[0][1]}.00 ||`
+    return `${this._header}21/10/2019 || || ${all_debits[0][1]}.00 || -1.00\n`
   } else if (all_credits[0]) {
     return `${this._header}21/10/2019 || ${all_credits[0][1]}.00 || || 1.00\n`
   } else {

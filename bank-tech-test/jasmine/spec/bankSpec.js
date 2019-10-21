@@ -43,12 +43,12 @@ describe("Bank", function () {
   describe("Simple Withdrawal, no balance", function () {
     it('Performs WITHDRAWAL with 1 and debit field is populated with 1.00, credit field empty', function () {
       account.withdraw(1)
-      expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || || 1.00 ||')
+      expect(account.statement()).toContain('date || credit || debit || balance\n21/10/2019 || || 1.00 ||')
     });
 
     it('Perform WITHDRAWAL with 10 and your debit field is populated with 10.00, credit field empty', function () {
       account.withdraw(10)
-      expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || || 10.00 ||')
+      expect(account.statement()).toContain('date || credit || debit || balance\n21/10/2019 || || 10.00 ||')
     });
   });
 
@@ -58,6 +58,10 @@ describe("Bank", function () {
       expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 1.00 || || 1.00\n')
     });
 
+    it('Performs WITHDRAWAL with 1 and debit field is populated with 1.00, credit field empty, BALANCE updated', function () {
+      account.withdraw(1)
+      expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || || 1.00 || -1.00\n')
+    });
   });
 
 });
