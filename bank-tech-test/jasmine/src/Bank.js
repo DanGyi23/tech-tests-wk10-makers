@@ -18,6 +18,7 @@ BankAccount.prototype.deposit = function (amount) {
 BankAccount.prototype.statementLineCreator = function () {
   let statement_array = []
   let running_balance = 0
+  
   this._history.forEach(function (x) {
     if (x.includes('credit')) {
       running_balance += x[1]
