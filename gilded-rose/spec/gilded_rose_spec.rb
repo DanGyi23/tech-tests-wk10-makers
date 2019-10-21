@@ -25,10 +25,17 @@ describe GildedRose do
       end
 
       it 'Normal items quality decreases 3 times after 3 updates' do
-        @gilded_rose.update_quality
-        @gilded_rose.update_quality
-        @gilded_rose.update_quality
+        3.times do
+          @gilded_rose.update_quality
+        end
         expect(@items[0].quality).to eq 47
+      end
+
+      it 'Normal items SellIn decreases 3 times after 3 updates' do
+        3.times do
+          @gilded_rose.update_quality
+        end
+        expect(@items[0].sell_in).to eq 2
       end
     end
   end
