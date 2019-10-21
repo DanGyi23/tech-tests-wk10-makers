@@ -1,5 +1,6 @@
 describe("Bank", function () {
   var account;
+  var today = 
 
   beforeEach(function () {
     account = new BankAccount();
@@ -84,6 +85,17 @@ describe("Bank", function () {
       account.withdraw(3)
       account.deposit(18)
       expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 3.00 || 7.00\n21/10/2019 || 18.00 || || 25.00\n')
+    });
+  });
+
+  describe("Date changes", function() {
+    beforeEach(function () {
+      spyOn(account, 'getDateToday').and.returnValues('20/10/2019', '21/10/2019', '25/10/2019')
+    });
+    it('Date changes based on date of transaction. Deposits 10.00 on 20th October and Withdraws 4.00 on 21st October', function(){
+      account.deposit(10)
+      account.withdraw(4)
+      expect(account.statement()).toEqual(`date || credit || debit || balance\n20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n`)
     });
   });
 

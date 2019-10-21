@@ -50,3 +50,5 @@ date || credit || debit || balance
   - 'date || credit || debit || balance\n21/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 3.00 || 7.00\n'
 13) Can have 3 concurrent DEPOSIT and WITHDRAWAL on 3 lines, balance updates (DEPOSIT 10, WITHDRAW 3, DEPOSIT 18)
   - 'date || credit || debit || balance\n21/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 3.00 || 7.00\n21/10/2019 || 18.00 || || 25.00\n'
+14) Date changes based on date of transaction. Deposits 10.00 on 20th October and Withdraws 4.00 on 21st October
+  - 'date || credit || debit || balance\n20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n'
