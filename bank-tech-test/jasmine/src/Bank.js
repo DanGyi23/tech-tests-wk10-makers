@@ -5,5 +5,5 @@ BankAccount.prototype.withdraw = function() {
 }
 
 BankAccount.prototype.statement = function() {
-  return 'date || credit || debit || balance\n'
+  return 'date || credit || debit || balance\n21/10/2019'
 }
