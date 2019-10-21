@@ -67,7 +67,17 @@ describe GildedRose do
           expect(@items[0].quality).to eq 1
         end
       end
+    end
+    describe 'Aged Brie, non-conjured' do
+      before(:each) do
+        @items = [Item.new('Aged Brie', 5, 5)]
+        @gilded_rose = GildedRose.new(@items)
+      end
 
+      it 'Brie quality increases by 1 after 1 day' do
+        @gilded_rose.update_quality
+        expect(@items[0].quality).to eq 6
+      end
     end
   end
 end
