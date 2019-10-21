@@ -38,4 +38,6 @@ describe("Bank", function() {
     account.withdraw(1)
     expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || || 1.00 ||')
   });
+
+  
 });
