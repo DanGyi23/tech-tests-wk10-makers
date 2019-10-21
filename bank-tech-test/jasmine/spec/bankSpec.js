@@ -39,5 +39,8 @@ describe("Bank", function() {
     expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || || 1.00 ||')
   });
 
-  
+  it('Perform WITHDRAWAL with 10 and your debit field is populated with 10.00, credit field empty', function() {
+    account.withdraw(10)
+    expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || || 10.00 ||')
+  });
 });
