@@ -1,6 +1,7 @@
 # Bank Withdrawal
 
-The purpose of this bank script is to print out a statement for a user, given their activity, like a real bank!
+The purpose of this bank script is to print out a statement for a user, given their activity, like a real bank!  
+  
 
 **For Example**
 
@@ -24,14 +25,29 @@ account = new BankAccount();
 account.withdraw(10);
 account.statement();
 
-=> 'date || credit || debit || balance\n21/10/2019 || || 10.00 || 10.00\n'
+
+=> 'date || credit || debit || balance\n21/10/2019 || || 10.00 || -10.00\n'
 
 ```
+
+```
+account2 = new BankAccount();
+account2.deposit(1050);
+account2.withdraw(300); 
+account2.withdraw(201);
+account2.statement();
+
+
+=> 'date || credit || debit || balance\n21/10/2019 || 1050.00 || || 1050.00\n21/10/2019 || || 300.00 || 750.00\n21/10/2019 || || 201.00 || 549.00\n'
+```  
+  
 
 ### Testing
 
 This was tested using Jasmine 3.5.0, and can be tested by opening the SpecRunner.html file in your browser.
-
+[Jasmine](https://jasmine.github.io/pages/getting_started.html) required docs are already included in this repo, so no need to configure.
+  
+  
 
 # Planning Below
 

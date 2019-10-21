@@ -22,10 +22,10 @@ BankAccount.prototype.statementLineCreator = function () {
   this._history.forEach(function (x) {
     if (x.includes('credit')) {
       running_balance += x[1]
-      statement_array.push(`${x[2]} || ${x[1]}.00 || || ${running_balance}.00\n`)
+      statement_array.push(`${x[2]} || ${x[1].toFixed(2)} || || ${running_balance.toFixed(2)}\n`)
     } else if (x.includes('debit')) {
       running_balance -= x[1]
-      statement_array.push(`${x[2]} || || ${x[1]}.00 || ${running_balance}.00\n`)
+      statement_array.push(`${x[2]} || || ${x[1].toFixed(2)} || ${running_balance.toFixed(2)}\n`)
     }
   });
 
