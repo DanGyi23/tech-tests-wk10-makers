@@ -9,8 +9,11 @@ class GildedRose
 
   def stock_update
     update_sell_in
+    # update_quality_brie
     update_quality
   end
+
+  
 
   def update_quality
     @items.each do |item|
@@ -62,6 +65,18 @@ class GildedRose
     @items.each do |item|
       unless item.name == 'Sulfuras, Hand of Ragnaros'
         item.sell_in = item.sell_in - 1
+      end
+    end
+  end
+
+  def update_quality_brie
+    @items.each do |item|
+      if item.name == 'Aged Brie' && item.quality < 50
+        if item.sell_in > 0
+          item.quality += 1
+        else
+          item.quality += 2
+        end
       end
     end
   end
