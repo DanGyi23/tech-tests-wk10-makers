@@ -29,8 +29,13 @@ describe("Bank", function() {
     expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 1.00 || ||')
   });
 
-  it('Perform DEPOSIT with 15 and your credit field is populated with 15.00, debit field empty', function () {
+  it('Performs DEPOSIT with 15 and credit field is populated with 15.00, debit field empty', function () {
     account.deposit(15)
     expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 15.00 || ||')
+  });
+
+  it('Performs WITHDRAWAL with 1 and debit field is populated with 1.00, credit field empty', function() {
+    account.withdraw(1)
+    expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || || 1.00 ||')
   });
 });
