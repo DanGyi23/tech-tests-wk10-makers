@@ -4,7 +4,7 @@ function BankAccount() {
 }
 
 BankAccount.prototype.statement = function () {
-return this._header + this.statementLineCreator();
+  return this._header + this.statementLineCreator();
 }
 
 BankAccount.prototype.withdraw = function (amount) {
@@ -18,7 +18,7 @@ BankAccount.prototype.deposit = function (amount) {
 BankAccount.prototype.statementLineCreator = function () {
   let statement_array = []
   let running_balance = 0
-  
+
   this._history.forEach(function (x) {
     if (x.includes('credit')) {
       running_balance += x[1]
@@ -32,7 +32,7 @@ BankAccount.prototype.statementLineCreator = function () {
   return statement_array.join('')
 }
 
-BankAccount.prototype.getDateToday = function() {
+BankAccount.prototype.getDateToday = function () {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0');

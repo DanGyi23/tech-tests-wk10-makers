@@ -55,8 +55,8 @@ describe("Bank", function () {
     });
   });
 
-  describe("Deposit/Withdrawal WITH Balance Update", function() {
-    it('Performs DEPOSIT with 1 and credit field is populated with 1.00, debit field empty, BALANCE updated', function() {
+  describe("Deposit/Withdrawal WITH Balance Update", function () {
+    it('Performs DEPOSIT with 1 and credit field is populated with 1.00, debit field empty, BALANCE updated', function () {
       account.deposit(1)
       expect(account.statement()).toEqual(`${header}21/10/2019 || 1.00 || || 1.00\n`)
     });
@@ -69,8 +69,8 @@ describe("Bank", function () {
     it('Performs DEPOSIT with 10 and credit field is populated with 10.00, debit field empty, BALANCE updated', function () {
       account.deposit(10)
       expect(account.statement()).toEqual(`${header}21/10/2019 || 10.00 || || 10.00\n`)
-    });  
-  
+    });
+
   });
 
   describe("Multiple DEPOSITS/WITHDRAWALS with Balance Update", function () {
@@ -88,11 +88,11 @@ describe("Bank", function () {
     });
   });
 
-  describe("Date changes", function() {
+  describe("Date changes", function () {
     beforeEach(function () {
       spyOn(account, 'getDateToday').and.returnValues('20/10/2019', '21/10/2019', '25/10/2019')
     });
-    it('Date changes based on date of transaction. Deposits 10.00 on 20th October and Withdraws 4.00 on 21st October', function(){
+    it('Date changes based on date of transaction. Deposits 10.00 on 20th October and Withdraws 4.00 on 21st October', function () {
       account.deposit(10)
       account.withdraw(4)
       expect(account.statement()).toEqual(`${header}20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n`)

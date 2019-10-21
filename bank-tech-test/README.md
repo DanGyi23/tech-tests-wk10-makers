@@ -1,5 +1,40 @@
 # Bank Withdrawal
 
+The purpose of this bank script is to print out a statement for a user, given their activity, like a real bank!
+
+**For Example**
+
+Given a client makes a deposit of 1000 on 10-01-2012  
+And a deposit of 2000 on 13-01-2012  
+And a withdrawal of 500 on 14-01-2012  
+When she prints her bank statement  
+Then she would see:  
+
+date || credit || debit || balance  
+14/01/2012 || || 500.00 || 2500.00  
+13/01/2012 || 2000.00 || || 3000.00  
+10/01/2012 || 1000.00 || || 1000.00  
+
+### Running
+
+You can run this in Chrome console, using the functions defined in BankAccount.js. For example:
+
+```
+account = new BankAccount();
+account.withdraw(10);
+account.statement();
+
+=> 'date || credit || debit || balance\n21/10/2019 || || 10.00 || 10.00\n'
+
+```
+
+### Testing
+
+This was tested using Jasmine 3.5.0, and can be tested by opening the SpecRunner.html file in your browser.
+
+
+# Planning Below
+
 #### Considerations
 
 - Can run using IRB/JS console, can just store in local memory, no database reqd.
@@ -52,3 +87,5 @@ date || credit || debit || balance
   - 'date || credit || debit || balance\n21/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 3.00 || 7.00\n21/10/2019 || 18.00 || || 25.00\n'
 14) Date changes based on date of transaction. Deposits 10.00 on 20th October and Withdraws 4.00 on 21st October
   - 'date || credit || debit || balance\n20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n'
+15) Date changes based on date of transaction. Deposits 10.00 on 20th October, Withdraws 4.00 on 21st October, Deposits 1000.00 on 25th October
+  - 'date || credit || debit || balance\n20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n25/10/2019 || 1000.00 || || 1006.00\n'
