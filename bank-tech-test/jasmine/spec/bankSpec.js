@@ -97,6 +97,13 @@ describe("Bank", function () {
       account.withdraw(4)
       expect(account.statement()).toEqual(`date || credit || debit || balance\n20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n`)
     });
+    it('Date changes based on date of transaction. Deposits 10.00 on 20th October, Withdraws 4.00 on 21st October, Deposits 1000.00 on 25th October', function () {
+      account.deposit(10)
+      account.withdraw(4)
+      account.deposit(1000)
+      expect(account.statement()).toEqual(`date || credit || debit || balance\n20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n25/10/2019 || 1000.00 || || 1006.00\n`)
+    });
+
   });
 
 });
