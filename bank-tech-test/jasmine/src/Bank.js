@@ -4,16 +4,19 @@ function BankAccount() {
 }
 
 BankAccount.prototype.statement = function () {
-  let all_debits = this.sort("debit")
-  let all_credits = this.sort("credit")
-  let balance = this.balanceCalculator();
-  if (all_debits[0]) {
-    return `${this._header}21/10/2019 || || ${all_debits[0][1]}.00 || ${balance}.00\n`
-  } else if (all_credits[0]) {
-    return `${this._header}21/10/2019 || ${all_credits[0][1]}.00 || || ${balance}.00\n`
-  } else {
-    return `${this._header}`
-  }
+  let statement_array = []
+  let running_balance = 0
+  this._history.forEach(function(x) {
+    if (x.includes('credit')) {
+      running_balance += x[1]
+      statement_array.push(`21/10/2019 || ${x[1]}.00 || || ${running_balance}.00\n`)
+    } else if (x.includes('debit')) {
+      running_balance -= x[1]
+      statement_array.push(`21/10/2019 || || ${x[1]}.00 || ${running_balance}.00\n`)
+    }
+  });
+
+return this._header + statement_array.join('')
 }
 
 BankAccount.prototype.withdraw = function (amount) {
