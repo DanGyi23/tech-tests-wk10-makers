@@ -21,7 +21,7 @@ describe("Bank", function() {
 
   it('Performs DEPOSIT with 1 and credit field is populated with 1.00', function() {
     account.deposit(1)
-    expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 1.00')
+    expect(account.statement()).toContain('date || credit || debit || balance\n21/10/2019 || 1.00')
   });
 
   it('Performs DEPOSIT with 1 and credit field is populated with 1.00, debit field empty', function() {
