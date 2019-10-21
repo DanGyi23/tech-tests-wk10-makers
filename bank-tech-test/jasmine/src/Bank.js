@@ -15,10 +15,6 @@ BankAccount.prototype.deposit = function (amount) {
   this._history.push(['credit', amount])
 }
 
-BankAccount.prototype.sort = function (type) {
-  return this._history.filter(function (x) { return x.includes(type) });
-}
-
 BankAccount.prototype.statementLineCreator = function () {
   let statement_array = []
   let running_balance = 0

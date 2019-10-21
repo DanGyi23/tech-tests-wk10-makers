@@ -6,17 +6,19 @@ describe("Bank", function () {
   });
 
   describe("Initial Formatting", function () {
+    beforeEach(function () {
+      account.withdraw(10)
+    });
+
     it("Performs ANY ACTION with ANY amount and the column headers are returned with a newline", function () {
       expect(account.statement()).toContain('date || credit || debit || balance\n');
     });
 
     it("Performs ANY ACTION with ANY amount and the correct date is included in the string", function () {
-      account.withdraw(10)
       expect(account.statement()).toContain('21/10/2019')
     });
 
     it('Performs ANY ACTION with ANY amount and the correct date is included in the string WITH the column headers', function () {
-      account.withdraw(5)
       expect(account.statement()).toContain('date || credit || debit || balance\n21/10/2019')
     });
   });
@@ -75,6 +77,13 @@ describe("Bank", function () {
       account.deposit(10)
       account.withdraw(3)
       expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 3.00 || 7.00\n')
+    });
+
+    it('Can have 3 concurrent DEPOSIT and WITHDRAWAL on 3 lines, balance updates (DEPOSIT 10, WITHDRAW 3, DEPOSIT 18)', function () {
+      account.deposit(10)
+      account.withdraw(3)
+      account.deposit(18)
+      expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 3.00 || 7.00\n21/10/2019 || 18.00 || || 25.00\n')
     });
   });
 
