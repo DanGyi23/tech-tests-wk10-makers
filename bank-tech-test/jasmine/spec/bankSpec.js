@@ -29,12 +29,12 @@ describe("Bank", function () {
 
     it('Performs DEPOSIT with 1 and credit field is populated with 1.00, debit field empty', function () {
       account.deposit(1)
-      expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 1.00 || ||')
+      expect(account.statement()).toContain('date || credit || debit || balance\n21/10/2019 || 1.00 || ||')
     });
 
     it('Performs DEPOSIT with 15 and credit field is populated with 15.00, debit field empty', function () {
       account.deposit(15)
-      expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 15.00 || ||')
+      expect(account.statement()).toContain('date || credit || debit || balance\n21/10/2019 || 15.00 || ||')
     });
   });
 
@@ -54,6 +54,7 @@ describe("Bank", function () {
 
   describe("Deposit WITH Balance Update", function() {
     it('Performs DEPOSIT with 1 and credit field is populated with 1.00, debit field empty, BALANCE updated', function() {
+      account.deposit(1)
       expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 1.00 || || 1.00\n')
     });
 

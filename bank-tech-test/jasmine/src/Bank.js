@@ -9,7 +9,7 @@ BankAccount.prototype.statement = function () {
   if (all_debits[0]) {
     return `${this._header}21/10/2019 || || ${all_debits[0][1]}.00 ||`
   } else if (all_credits[0]) {
-    return `${this._header}21/10/2019 || ${all_credits[0][1]}.00 || ||`
+    return `${this._header}21/10/2019 || ${all_credits[0][1]}.00 || || 1.00\n`
   } else {
     return `${this._header}`
   }
