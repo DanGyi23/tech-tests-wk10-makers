@@ -52,7 +52,7 @@ describe("Bank", function () {
     });
   });
 
-  describe("Deposit WITH Balance Update", function() {
+  describe("Deposit/Withdrawal WITH Balance Update", function() {
     it('Performs DEPOSIT with 1 and credit field is populated with 1.00, debit field empty, BALANCE updated', function() {
       account.deposit(1)
       expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 1.00 || || 1.00\n')
@@ -68,6 +68,14 @@ describe("Bank", function () {
       expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 10.00 || || 10.00\n')
     });  
   
+  });
+
+  describe("Multiple DEPOSITS/WITHDRAWALS with Balance Update", function () {
+    it('Can have concurrent DEPOSIT and WITHDRAWAL on 2 lines, balance updates (DEPOSIT 10, WITHDRAW 3)', function () {
+      account.deposit(10)
+      account.withdraw(3)
+      expect(account.statement()).toEqual('date || credit || debit || balance\n21/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 3.00 || 7.00\n')
+    });
   });
 
 });
