@@ -11,54 +11,8 @@ class GildedRose
     update_sell_in
     update_quality_brie
     update_quality_backstage_pass
-    # update_normal_quality
+    update_quality_normal
   end
-
-  
-
-  # def update_quality
-  #   @items.each do |item|
-  #     if (item.name != 'Aged Brie') && (item.name != 'Backstage passes to a TAFKAL80ETC concert')
-  #       if item.quality > 0
-  #         if item.name != 'Sulfuras, Hand of Ragnaros'
-  #           item.quality = item.quality - 1
-  #         end
-  #       end
-  #     else # normal items
-  #       if item.quality < 50
-  #         item.quality = item.quality + 1
-  #         if item.name == 'Backstage passes to a TAFKAL80ETC concert'
-  #           if item.sell_in < 11
-  #             item.quality = item.quality + 1 if item.quality < 50
-  #           end
-  #           if item.sell_in < 6
-  #             item.quality = item.quality + 1 if item.quality < 50
-  #           end
-  #         end
-  #       end
-  #     end
-
-  #     # if item.name != "Sulfuras, Hand of Ragnaros"
-  #     #   item.sell_in = item.sell_in - 1
-  #     # end
-
-  #     if item.sell_in < 0
-  #       if item.name != 'Aged Brie'
-  #         if item.name != 'Backstage passes to a TAFKAL80ETC concert'
-  #           if item.quality > 0
-  #             if item.name != 'Sulfuras, Hand of Ragnaros'
-  #               item.quality = item.quality - 1
-  #             end
-  #           end
-  #         else
-  #           item.quality = item.quality - item.quality
-  #         end
-  #       else
-  #         item.quality = item.quality + 1 if item.quality < 50
-  #       end
-  #     end
-  #   end
-  # end
 
   private
 
@@ -70,10 +24,22 @@ class GildedRose
     end
   end
 
+  def update_quality_normal
+    @items.each do |item|
+      if (item.name != 'Aged Brie') && (item.name != 'Backstage passes to a TAFKAL80ETC concert') && (item.name != 'Sulfuras, Hand of Ragnaros') && item.quality > QUALITY_MIN
+        if item.sell_in >= 0
+          item.quality -= 1
+        else
+          item.quality -= 2
+        end
+      end
+    end
+  end
+
   def update_quality_brie
     @items.each do |item|
       if item.name == 'Aged Brie' && item.quality < 50
-        if item.sell_in > 0
+        if item.sell_in >= 0
           item.quality += 1
         else
           item.quality += 2
@@ -92,7 +58,7 @@ class GildedRose
         elsif item.sell_in <= 5 && item.sell_in >= 0
           item.quality += 3
         else
-          item.quality = 0
+          item.quality = QUALITY_MIN
         end
       end
     end
