@@ -236,6 +236,15 @@ describe GildedRose do
           @gilded_rose.stock_update
           expect(@items[0].quality).to eq 22
         end
+
+        it 'Backstage Pass, conjured. Quality improves by 4 if sell_in < 10 but > 5' do
+          2.times do
+            @gilded_rose.stock_update
+          end
+          expect(@items[0].quality).to eq 24
+          @gilded_rose.stock_update
+          expect(@items[0].quality).to eq 28
+        end
       end
     end
   end
