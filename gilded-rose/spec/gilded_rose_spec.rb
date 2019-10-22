@@ -188,6 +188,27 @@ describe GildedRose do
           @gilded_rose.stock_update
           expect(@items[0].quality).to eq 7
         end
+
+        it 'Brie, conjured item. Quality increases by 6 after 3 days' do
+          3.times do
+            @gilded_rose.stock_update
+          end
+          expect(@items[0].quality).to eq 11
+        end
+
+        it 'Brie, conjured item. Quality increases by 4 each day past sell_in' do
+          5.times do
+            @gilded_rose.stock_update
+          end
+          expect(@items[0].quality).to eq 15
+          @gilded_rose.stock_update
+          expect(@items[0].quality).to eq 19
+        end
+
+        it 'Brie, conjured item. Sell_in decreases by 1 after each day' do
+          @gilded_rose.stock_update
+          expect(@items[0].sell_in).to eq 4
+        end
       end
       # describe 'Sulfaras, conjured' do
 
