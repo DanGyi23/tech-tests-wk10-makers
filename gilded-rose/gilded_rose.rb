@@ -35,13 +35,13 @@ class GildedRose
   end
 
   def update_sell_in(item)
-      unless item.name == 'Sulfuras, Hand of Ragnaros'
+      unless item.name.include?('Sulfuras, Hand of Ragnaros')
         item.sell_in -= 1
     end
   end
 
   def update_quality_normal(item)
-    if (!item.name.include?('Aged Brie') && (item.name != 'Backstage passes to a TAFKAL80ETC concert') && (item.name != 'Sulfuras, Hand of Ragnaros') && item.quality > QUALITY_MIN)
+    if (!item.name.include?('Aged Brie')) && (item.name != 'Backstage passes to a TAFKAL80ETC concert') && (!item.name.include?( 'Sulfuras, Hand of Ragnaros')) && (item.quality > QUALITY_MIN)
       if item.sell_in >= 0
         item.quality -= 1
       else

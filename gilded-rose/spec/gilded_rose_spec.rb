@@ -218,7 +218,7 @@ describe GildedRose do
 
         it 'Sulfuras, conjured. Quality stays same' do
           @gilded_rose.stock_update
-          expect(@items[0].sell_in).to eq 20
+          expect(@items[0].quality).to eq 20
         end
       end
       # describe 'Backstage Pass, conjured' do
