@@ -159,6 +159,13 @@ describe GildedRose do
           @gilded_rose.stock_update
           expect(@items[0].quality).to eq 3
         end
+
+        it 'Normal, conjured item. Drops in quality by 4 after 2 days' do
+          2.times do
+            @gilded_rose.stock_update
+          end
+          expect(@items[0].quality).to eq 1
+        end
       end
       # describe 'Brie, conjured' do
 
