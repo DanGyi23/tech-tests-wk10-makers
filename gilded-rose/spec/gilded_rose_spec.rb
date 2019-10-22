@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../gilded_rose'
-require_relative '../item'
+require_relative '../lib/gilded_rose'
+require_relative '../lib/item'
 
 describe GildedRose do
   describe '#stock_update' do

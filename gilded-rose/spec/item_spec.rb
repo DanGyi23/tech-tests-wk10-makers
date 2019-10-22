@@ -1,4 +1,4 @@
-require_relative '../item'
+require_relative '../lib/item'
 
 describe Item do
   before(:each) do
