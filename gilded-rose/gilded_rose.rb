@@ -28,6 +28,7 @@ class GildedRose
     update_quality_backstage_pass(item)
     update_quality_brie(item)
     update_quality_normal(item)
+    quality_limiter(item)
   end
 
   def conjured?(item)
@@ -41,7 +42,7 @@ class GildedRose
   end
 
   def update_quality_normal(item)
-    if (!item.name.include?('Aged Brie')) && (!item.name.include?('Backstage passes to a TAFKAL80ETC concert')) && (!item.name.include?( 'Sulfuras, Hand of Ragnaros')) && (item.quality > QUALITY_MIN)
+    if (!item.name.include?('Aged Brie')) && (!item.name.include?('Backstage passes to a TAFKAL80ETC concert')) && (!item.name.include?( 'Sulfuras, Hand of Ragnaros'))
       if item.sell_in >= 0
         item.quality -= 1
       else
@@ -51,7 +52,7 @@ class GildedRose
   end
 
   def update_quality_brie(item)
-    if item.name.include?('Aged Brie') && item.quality < QUALITY_MAX
+    if item.name.include?('Aged Brie')
       if item.sell_in >= 0
         item.quality += 1
       else
@@ -61,7 +62,7 @@ class GildedRose
   end
 
   def update_quality_backstage_pass(item)
-    if item.name.include?('Backstage passes to a TAFKAL80ETC concert') && item.quality < QUALITY_MAX
+    if item.name.include?('Backstage passes to a TAFKAL80ETC concert')
       if item.sell_in >= 10
         item.quality += 1
       elsif item.sell_in < 10 && item.sell_in >= 5
@@ -71,6 +72,14 @@ class GildedRose
       else
         item.quality = QUALITY_MIN
       end
+    end
+  end
+
+  def quality_limiter(item)
+    if item.quality > QUALITY_MAX
+      item.quality = QUALITY_MAX
+    elsif item.quality < QUALITY_MIN
+      item.quality = QUALITY_MIN
     end
   end
 
