@@ -10,23 +10,24 @@ class GildedRose
 
   def stock_update
     @items.each do |item|
+      update_sell_in(item)
       if conjured?(item)
-        update_sell_in(item)
         2.times do 
-          update_quality_backstage_pass(item)
-          update_quality_brie(item)
-          update_quality_normal(item)
+          update_quality_all_item_types(item)
         end
       else
-        update_sell_in(item)
-        update_quality_backstage_pass(item)
-        update_quality_brie(item)
-        update_quality_normal(item)
+        update_quality_all_item_types(item)
       end
     end
   end
 
   private
+
+  def update_quality_all_item_types(item)
+    update_quality_backstage_pass(item)
+    update_quality_brie(item)
+    update_quality_normal(item)
+  end
 
   def conjured?(item)
     item.name.include?("Conjured") || item.name.include?("conjured")
