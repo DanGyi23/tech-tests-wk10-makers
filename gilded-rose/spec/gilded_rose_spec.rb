@@ -210,9 +210,17 @@ describe GildedRose do
           expect(@items[0].sell_in).to eq 4
         end
       end
-      # describe 'Sulfaras, conjured' do
+      describe 'Sulfaras, conjured' do
+        before(:each) do
+          @items = [Item.new('Conjured Sulfuras, Hand of Ragnaros', 15, 20)]
+          @gilded_rose = GildedRose.new(@items)
+        end
 
-      # end
+        it 'Sulfuras, conjured. Quality stays same' do
+          @gilded_rose.stock_update
+          expect(@items[0].sell_in).to eq 20
+        end
+      end
       # describe 'Backstage Pass, conjured' do
 
       # end
