@@ -180,7 +180,14 @@ describe GildedRose do
         end
       end
       describe 'Brie, conjured' do
-
+        before(:each) do
+          @items = [Item.new('Conjured Aged Brie', 5, 5)]
+          @gilded_rose = GildedRose.new(@items)
+        end
+        it 'Brie, conjured item. Quality increases by 2 after 1 day' do
+          @gilded_rose.stock_update
+          expect(@items[0].quality).to eq 7
+        end
       end
       # describe 'Sulfaras, conjured' do
 
