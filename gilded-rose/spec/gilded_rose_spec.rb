@@ -152,9 +152,9 @@ describe GildedRose do
     describe 'Conjured Items' do
       describe 'Normal conjured Items' do
         before(:each) do
-            @items = [Item.new('Conjured Elixir of the Mongoose', 5, 5)]
-            @gilded_rose = GildedRose.new(@items)
-          end
+          @items = [Item.new('Conjured Elixir of the Mongoose', 5, 5)]
+          @gilded_rose = GildedRose.new(@items)
+        end
         it 'Normal, conjured item. Drops in quality by 2 each day' do
           @gilded_rose.stock_update
           expect(@items[0].quality).to eq 3
@@ -179,9 +179,9 @@ describe GildedRose do
           expect(@items[0].quality).to eq 0
         end
       end
-      # describe 'Brie, conjured' do
+      describe 'Brie, conjured' do
 
-      # end
+      end
       # describe 'Sulfaras, conjured' do
 
       # end
