@@ -226,9 +226,17 @@ describe GildedRose do
           expect(@items[0].sell_in).to eq 15
         end
       end
-      # describe 'Backstage Pass, conjured' do
+      describe 'Backstage Pass, conjured' do
+        before(:each) do
+          @items = [Item.new('Conjured Backstage passes to a TAFKAL80ETC concert', 12, 20)]
+          @gilded_rose = GildedRose.new(@items)
+        end
 
-      # end
+        it 'Backstage Pass, conjured. Quality increases by 2 if sell_in > 10' do
+          @gilded_rose.stock_update
+          expect(@items[0].quality).to eq 22
+        end
+      end
     end
   end
 end
