@@ -124,27 +124,26 @@ describe GildedRose do
       end
 
       it 'Increases in quality by 2 if 11 > sell_in > 5' do
-        2.times do
+        4.times do
           @gilded_rose.stock_update
         end
-        expect(@items[0].quality).to eq 8
+        expect(@items[0].quality).to eq 11
       end
 
       it 'Increases in quality by 3 if 5 > sell_in > 0' do
         7.times do
           @gilded_rose.stock_update
         end
-        p @items[0].sell_in
-        expect(@items[0].quality).to eq 19
+        expect(@items[0].quality).to eq 17
         @gilded_rose.stock_update
-        expect(@items[0].quality).to eq 22
+        expect(@items[0].quality).to eq 20
       end
 
       it 'Quality drops to zero when sell_in date is negative' do
         12.times do
           @gilded_rose.stock_update
         end
-        expect(@items[0].quality).to eq 34
+        expect(@items[0].quality).to eq 32
         @gilded_rose.stock_update
         expect(@items[0].quality).to eq 0
       end

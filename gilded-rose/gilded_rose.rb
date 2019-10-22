@@ -9,8 +9,8 @@ class GildedRose
 
   def stock_update
     update_sell_in
-    update_quality_brie
     update_quality_backstage_pass
+    update_quality_brie
     update_quality_normal
   end
 
@@ -19,7 +19,7 @@ class GildedRose
   def update_sell_in
     @items.each do |item|
       unless item.name == 'Sulfuras, Hand of Ragnaros'
-        item.sell_in = item.sell_in - 1
+        item.sell_in -= 1
       end
     end
   end
@@ -51,11 +51,11 @@ class GildedRose
   def update_quality_backstage_pass
     @items.each do |item|
       if item.name == 'Backstage passes to a TAFKAL80ETC concert' && item.quality < 50
-        if item.sell_in > 10
+        if item.sell_in >= 10
           item.quality += 1
-        elsif item.sell_in <= 10 && item.sell_in > 5
+        elsif item.sell_in < 10 && item.sell_in >= 5
           item.quality += 2
-        elsif item.sell_in <= 5 && item.sell_in >= 0
+        elsif item.sell_in < 5 && item.sell_in >= 0
           item.quality += 3
         else
           item.quality = QUALITY_MIN
