@@ -41,7 +41,7 @@ class GildedRose
   end
 
   def update_quality_normal(item)
-    if (!item.name.include?('Aged Brie')) && (item.name != 'Backstage passes to a TAFKAL80ETC concert') && (!item.name.include?( 'Sulfuras, Hand of Ragnaros')) && (item.quality > QUALITY_MIN)
+    if (!item.name.include?('Aged Brie')) && (!item.name.include?('Backstage passes to a TAFKAL80ETC concert')) && (!item.name.include?( 'Sulfuras, Hand of Ragnaros')) && (item.quality > QUALITY_MIN)
       if item.sell_in >= 0
         item.quality -= 1
       else
@@ -61,7 +61,7 @@ class GildedRose
   end
 
   def update_quality_backstage_pass(item)
-    if item.name == 'Backstage passes to a TAFKAL80ETC concert' && item.quality < QUALITY_MAX
+    if item.name.include?('Backstage passes to a TAFKAL80ETC concert') && item.quality < QUALITY_MAX
       if item.sell_in >= 10
         item.quality += 1
       elsif item.sell_in < 10 && item.sell_in >= 5
