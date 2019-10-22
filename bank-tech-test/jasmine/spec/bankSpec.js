@@ -4,6 +4,10 @@ describe("Bank", function () {
 
   beforeEach(function () {
     account = new BankAccount();
+    spyOn(account, 'getDateToday').and.returnValues('21/10/2019', '21/10/2019', '21/10/2019')
+  });
+
+  beforeEach(function () {
   });
 
   describe("Initial Formatting", function () {
@@ -88,22 +92,26 @@ describe("Bank", function () {
     });
   });
 
-  describe("Date changes", function () {
-    beforeEach(function () {
-      spyOn(account, 'getDateToday').and.returnValues('20/10/2019', '21/10/2019', '25/10/2019')
-    });
-    it('Date changes based on date of transaction. Deposits 10.00 on 20th October and Withdraws 4.00 on 21st October', function () {
-      account.deposit(10)
-      account.withdraw(4)
-      expect(account.statement()).toEqual(`${header}20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n`)
-    });
-    it('Date changes based on date of transaction. Deposits 10.00 on 20th October, Withdraws 4.00 on 21st October, Deposits 1000.00 on 25th October', function () {
-      account.deposit(10)
-      account.withdraw(4)
-      account.deposit(1000)
-      expect(account.statement()).toEqual(`${header}20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n25/10/2019 || 1000.00 || || 1006.00\n`)
-    });
+});
 
+describe("Date changes", function () {
+  var account;
+  var header = 'date || credit || debit || balance\n';
+  
+  beforeEach(function () {
+    account = new BankAccount();
+    spyOn(account, 'getDateToday').and.returnValues('20/10/2019', '21/10/2019', '25/10/2019')
+  });
+  it('Date changes based on date of transaction. Deposits 10.00 on 20th October and Withdraws 4.00 on 21st October', function () {
+    account.deposit(10)
+    account.withdraw(4)
+    expect(account.statement()).toEqual(`${header}20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n`)
+  });
+  it('Date changes based on date of transaction. Deposits 10.00 on 20th October, Withdraws 4.00 on 21st October, Deposits 1000.00 on 25th October', function () {
+    account.deposit(10)
+    account.withdraw(4)
+    account.deposit(1000)
+    expect(account.statement()).toEqual(`${header}20/10/2019 || 10.00 || || 10.00\n21/10/2019 || || 4.00 || 6.00\n25/10/2019 || 1000.00 || || 1006.00\n`)
   });
 
 });
