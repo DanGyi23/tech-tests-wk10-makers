@@ -33,5 +33,14 @@ describe("Game", function() {
       game.makeTurn(0);
       expect(game._board[0]).toEqual("X");
     });
+
+    it("Stores both the first and second players turns in the board array", function() {
+      expect(game._board[0]).toEqual(undefined)
+      game.makeTurn(0);
+      expect(game._board[0]).toEqual("X");
+      game.makeTurn(4);
+      expect(game._board[0]).toEqual("X");
+      expect(game._board[4]).toEqual("O");
+    });
   });
 });
