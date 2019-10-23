@@ -28,21 +28,22 @@ function Game() {
     return this.rowWinCheck();
   };
 
-  Game.prototype.arraySlicer = function(start,finish) {
-    return this._board.slice(start,finish).join('')
+  Game.prototype.arraySelector = function(pos1,pos2,pos3) {
+    return ([this._board[pos1], this._board[pos2],this._board[pos3]]).join('')
   };
 
   Game.prototype.rowWinCheck = function() {
     if
-      (this.arraySlicer(0, 3) === PLAYER_1_WIN ||
-      this.arraySlicer(3, 6) === PLAYER_1_WIN ||
-      this.arraySlicer(6, 9) === PLAYER_1_WIN) {
+      (this.arraySelector(0,1,2) === PLAYER_1_WIN ||
+      this.arraySelector(3,4,5) === PLAYER_1_WIN ||
+      this.arraySelector(6,7,8) === PLAYER_1_WIN) {
       return this._player1
     } else if
-      (this.arraySlicer(0, 3) === PLAYER_2_WIN ||
-      this.arraySlicer(3, 6) === PLAYER_2_WIN ||
-      this.arraySlicer(6, 9) === PLAYER_2_WIN) {
+      (this.arraySelector(0,1,2) === PLAYER_2_WIN ||
+      this.arraySelector(3,4,5) === PLAYER_2_WIN ||
+      this.arraySelector(6,7,8) === PLAYER_2_WIN) {
       return this._player2
     }
   }
+
 };
