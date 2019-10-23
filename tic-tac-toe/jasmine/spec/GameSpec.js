@@ -47,8 +47,7 @@ describe("Game", function() {
       expect(game._board[0]).toEqual(undefined)
       game.makeTurn(0);
       expect(game._board[0]).toEqual("X");
-      game.makeTurn(0);
-      expect(game._board[0]).toEqual("X");
+      expect( function() {game.makeTurn(0)} ).toThrow(new Error("Square already occupied, try again"));
     });
   });
 });

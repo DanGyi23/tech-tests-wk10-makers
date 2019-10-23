@@ -5,8 +5,12 @@ function Game() {
   this._board = new Array(9);
 
   Game.prototype.makeTurn = function(index) {
+    if (this._board[index] === undefined) {
     this._board[index] = this._currentTurn._name
     this.turnChanger();
+    } else {
+      throw new Error("Square already occupied, try again")
+    };
   };
 
   Game.prototype.turnChanger = function () {
