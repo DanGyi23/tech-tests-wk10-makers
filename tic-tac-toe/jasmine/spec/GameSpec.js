@@ -50,4 +50,15 @@ describe("Game", function() {
       expect( function() {game.makeTurn(0)} ).toThrow(new Error("Square already occupied, try again"));
     });
   });
+
+  describe("#winCheck", function() {
+    it('P1 wins when top row is all X', function() {
+      game.makeTurn(0);
+      game.makeTurn(3);
+      game.makeTurn(1);
+      game.makeTurn(4);
+      game.makeTurn(2);
+      expect(game.winCheck()).toEqual(game._player1)
+    });
+  });
 });
