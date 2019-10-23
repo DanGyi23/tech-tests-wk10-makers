@@ -105,8 +105,18 @@ describe("Game", function() {
       expect(game.winCheck()).toEqual(game._player1)
     });
 
-    it('P2 wins when first column is all X', function () {
+    it('P2 wins when first column is all O', function () {
       playGame([2, 3, 5, 6, 4, 0])
+      expect(game.winCheck()).toEqual(game._player2)
+    });
+
+    it('P2 wins when second column is all O', function () {
+      playGame([2, 1, 5, 4, 6, 7])
+      expect(game.winCheck()).toEqual(game._player2)
+    });
+
+    it('P2 wins when third column is all O', function () {
+      playGame([3, 2, 4, 5, 6, 8])
       expect(game.winCheck()).toEqual(game._player2)
     });
   });
