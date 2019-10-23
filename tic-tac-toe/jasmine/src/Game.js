@@ -21,4 +21,8 @@ function Game() {
     };
   };
 
+  Game.prototype.winCheck = function() {
+
+  };
+
 };
