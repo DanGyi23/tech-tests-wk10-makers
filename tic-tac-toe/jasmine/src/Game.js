@@ -22,11 +22,13 @@ function Game() {
   };
 
   Game.prototype.winCheck = function() {
-    if (this._board[0] === this._board[1] && this._board[0] === this._board[2]) {
+    if (this._board[0] === this._board[1] && this._board[0] === this._board[2] && this._board[0] !== undefined) {
       return this._player1
-    } else if (this._board[3] === this._board[4] && this._board[3] === this._board[5]) {
+    } else if (this._board[3] === this._board[4] && this._board[3] === this._board[5] && this._board[3] !== undefined) {
       return this._player1
-    }
+    } else if (this._board[3] === this._board[4] && this._board[3] === this._board[5] && this._board[3] !== undefined) {
+      return this._player1
+    };
   };
 
 };
