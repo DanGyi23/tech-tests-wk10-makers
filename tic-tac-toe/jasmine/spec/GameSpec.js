@@ -10,4 +10,12 @@ describe("Game", function() {
       expect(game._player2._name).toEqual("O")
     });
   });
+
+  describe("#turnChanger", function() {
+    it("Changes the current turn (this._currentTurn) to the opposite player object", function() {
+      expect(game._currentTurn).toEqual(game._player1)
+      game.turnChanger();
+      expect(game._currentTurn).toEqual(game._player2)
+    });
+  });
 });
