@@ -24,22 +24,25 @@ function Game() {
     };
   };
 
-  Game.prototype.winCheck = function() {
-    if 
-    (this.arraySlicer(0, 3) === PLAYER_1_WIN ||
-     this.arraySlicer(3, 6) === PLAYER_1_WIN || 
-     this.arraySlicer(6, 9) === PLAYER_1_WIN) {
-      return this._player1
-    } else if 
-    (this.arraySlicer(0, 3) === PLAYER_2_WIN || 
-    this.arraySlicer(3, 6) === PLAYER_2_WIN || 
-    this.arraySlicer(6, 9) === PLAYER_2_WIN) {
-      return this._player2
-    };
+  Game.prototype.winCheck = function () {
+    return this.rowWinCheck();
   };
 
   Game.prototype.arraySlicer = function(start,finish) {
     return this._board.slice(start,finish).join('')
   };
 
+  Game.prototype.rowWinCheck = function() {
+    if
+      (this.arraySlicer(0, 3) === PLAYER_1_WIN ||
+      this.arraySlicer(3, 6) === PLAYER_1_WIN ||
+      this.arraySlicer(6, 9) === PLAYER_1_WIN) {
+      return this._player1
+    } else if
+      (this.arraySlicer(0, 3) === PLAYER_2_WIN ||
+      this.arraySlicer(3, 6) === PLAYER_2_WIN ||
+      this.arraySlicer(6, 9) === PLAYER_2_WIN) {
+      return this._player2
+    }
+  }
 };

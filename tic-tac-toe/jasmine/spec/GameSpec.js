@@ -57,7 +57,7 @@ describe("Game", function() {
     });
   });
 
-  describe("#winCheck", function() {
+  describe("#winCheck for ROWS", function() {
     it('P1 wins when top row is all X', function() {
       playGame([0,3,1,4,2])
       expect(game.winCheck()).toEqual(game._player1)
@@ -86,6 +86,13 @@ describe("Game", function() {
     it('P2 wins when bottom row is all O', function () {
       playGame([4, 6, 5, 7, 1, 8])
       expect(game.winCheck()).toEqual(game._player2)
+    });
+  });
+
+  describe("#winCheck for COLUMNS", function () {
+    it('P1 wins when first column is all X', function () {
+      playGame([0, 4, 3, 5, 6])
+      expect(game.winCheck()).toEqual(game._player1)
     });
   });
 });
