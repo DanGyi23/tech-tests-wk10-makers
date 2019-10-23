@@ -60,5 +60,14 @@ describe("Game", function() {
       game.makeTurn(2);
       expect(game.winCheck()).toEqual(game._player1)
     });
+
+    it('P1 wins when middle row is all X', function () {
+      game.makeTurn(3);
+      game.makeTurn(1);
+      game.makeTurn(4);
+      game.makeTurn(2);
+      game.makeTurn(5);
+      expect(game.winCheck()).toEqual(game._player1)
+    });
   });
 });
