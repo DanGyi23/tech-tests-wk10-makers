@@ -4,6 +4,12 @@ describe("Game", function() {
     game = new Game();
   });
 
+  playGame = function(turns_array) {
+    turns_array.forEach(function(element) {
+      game.makeTurn(element);
+    });
+  }
+
   describe("Players", function() {
     it("Has two players, X and O", function() {
       expect(game._player1._name).toEqual("X")
@@ -53,59 +59,32 @@ describe("Game", function() {
 
   describe("#winCheck", function() {
     it('P1 wins when top row is all X', function() {
-      game.makeTurn(0);
-      game.makeTurn(3);
-      game.makeTurn(1);
-      game.makeTurn(4);
-      game.makeTurn(2);
+      playGame([0,3,1,4,2])
       expect(game.winCheck()).toEqual(game._player1)
     });
 
     it('P1 wins when middle row is all X', function () {
-      game.makeTurn(3);
-      game.makeTurn(1);
-      game.makeTurn(4);
-      game.makeTurn(2);
-      game.makeTurn(5);
+      playGame([3, 1, 4, 2, 5])
       expect(game.winCheck()).toEqual(game._player1)
     });
 
     it('P1 wins when bottom row is all X', function () {
-      game.makeTurn(6);
-      game.makeTurn(1);
-      game.makeTurn(7);
-      game.makeTurn(2);
-      game.makeTurn(8);
+      playGame([6, 1, 7, 2, 8])
       expect(game.winCheck()).toEqual(game._player1)
     });
 
     it('P2 wins when top row is all O', function () {
-      game.makeTurn(6);
-      game.makeTurn(0);
-      game.makeTurn(7);
-      game.makeTurn(1);
-      game.makeTurn(4);
-      game.makeTurn(2);
+      playGame([6, 0, 7, 1, 4, 2])
       expect(game.winCheck()).toEqual(game._player2)
     });
 
     it('P2 wins when middle row is all O', function () {
-      game.makeTurn(6);
-      game.makeTurn(3);
-      game.makeTurn(7);
-      game.makeTurn(4);
-      game.makeTurn(1);
-      game.makeTurn(5);
+      playGame([6, 3, 7, 4, 1, 5])
       expect(game.winCheck()).toEqual(game._player2)
     });
 
     it('P2 wins when bottom row is all O', function () {
-      game.makeTurn(6);
-      game.makeTurn(0);
-      game.makeTurn(7);
-      game.makeTurn(1);
-      game.makeTurn(4);
-      game.makeTurn(2);
+      playGame([4, 6, 5, 7, 1, 8])
       expect(game.winCheck()).toEqual(game._player2)
     });
   });
