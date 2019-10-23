@@ -1,8 +1,11 @@
 function Game() {
   this._player1 = new Player(name= "X");
   this._player2 = new Player(name= "O");
+  const PLAYER_1_WIN = "XXX"
+  const PLAYER_2_WIN = "OOO"
   this._currentTurn = this._player1
   this._board = new Array(9)
+
 
   Game.prototype.makeTurn = function(index) {
     if (this._board[index] == undefined) {
@@ -22,13 +25,23 @@ function Game() {
   };
 
   Game.prototype.winCheck = function() {
-    if (this._board[0] === this._board[1] && this._board[0] === this._board[2] && this._board[2] !== undefined) {
+    if (this.arraySlicer(0, 3) === PLAYER_1_WIN) {
       return this._player1
-    } else if (this._board[3] === this._board[4] && this._board[3] === this._board[5] && this._board[5] !== undefined) {
+    } else if (this.arraySlicer(0, 3) === PLAYER_2_WIN) {
+      return this._player2
+    } else if (this.arraySlicer(3, 6) === PLAYER_1_WIN) {
       return this._player1
-    } else if (this._board[6] === this._board[7] && this._board[6] === this._board[8] && this._board[8] !== undefined) {
+    } else if (this.arraySlicer(3, 6) === PLAYER_2_WIN) {
+      return this._player2
+    } else if (this.arraySlicer(6, 9) === PLAYER_1_WIN) {
       return this._player1
+    } else if (this.arraySlicer(6, 9) === PLAYER_2_WIN) {
+      return this._player2
     };
+  };
+
+  Game.prototype.arraySlicer = function(start,finish) {
+    return this._board.slice(start,finish).join('')
   };
 
 };

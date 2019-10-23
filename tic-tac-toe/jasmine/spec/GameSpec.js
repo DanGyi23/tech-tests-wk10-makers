@@ -88,5 +88,25 @@ describe("Game", function() {
       game.makeTurn(2);
       expect(game.winCheck()).toEqual(game._player2)
     });
+
+    it('P2 wins when middle row is all O', function () {
+      game.makeTurn(6);
+      game.makeTurn(3);
+      game.makeTurn(7);
+      game.makeTurn(4);
+      game.makeTurn(1);
+      game.makeTurn(5);
+      expect(game.winCheck()).toEqual(game._player2)
+    });
+
+    it('P2 wins when bottom row is all O', function () {
+      game.makeTurn(6);
+      game.makeTurn(0);
+      game.makeTurn(7);
+      game.makeTurn(1);
+      game.makeTurn(4);
+      game.makeTurn(2);
+      expect(game.winCheck()).toEqual(game._player2)
+    });
   });
 });
