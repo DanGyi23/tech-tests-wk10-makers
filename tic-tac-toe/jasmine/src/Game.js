@@ -22,7 +22,9 @@ function Game() {
   };
 
   Game.prototype.winCheck = function() {
-
+    if (this._board[0] === this._board[1] && this._board[0] === this._board[2]) {
+      return this._player1
+    };
   };
 
 };
