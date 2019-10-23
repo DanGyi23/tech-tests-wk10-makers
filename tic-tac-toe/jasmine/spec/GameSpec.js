@@ -94,5 +94,10 @@ describe("Game", function() {
       playGame([0, 4, 3, 5, 6])
       expect(game.winCheck()).toEqual(game._player1)
     });
+
+    it('P1 wins when second column is all X', function () {
+      playGame([1, 3, 4, 2, 7])
+      expect(game.winCheck()).toEqual(game._player1)
+    });
   });
 });
