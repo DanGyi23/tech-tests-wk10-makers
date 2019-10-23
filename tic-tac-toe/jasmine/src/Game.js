@@ -14,6 +14,7 @@ function Game() {
 
   Game.prototype.makeTurn = function(index) {
     this._board[index] = this._currentTurn._name
+    this.turnChanger();
   };
 
 };
