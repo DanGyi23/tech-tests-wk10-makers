@@ -17,10 +17,6 @@ function WinChecker(game) {
     };
   };
 
-  WinChecker.prototype.arraySelector = function(pos1,pos2,pos3) {
-    return ([game._board[pos1], game._board[pos2],game._board[pos3]]).join('')
-  };
-
   WinChecker.prototype.rowWinCheck = function () {
     if
       (this.arraySelector(0,1,2) === PLAYER_1_WIN ||
@@ -60,4 +56,8 @@ function WinChecker(game) {
       return game._player2
     }
   }
+
+  WinChecker.prototype.arraySelector = function (pos1, pos2, pos3) {
+    return ([game._board[pos1], game._board[pos2], game._board[pos3]]).join('')
+  };
 }

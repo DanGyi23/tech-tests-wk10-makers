@@ -14,7 +14,7 @@ function Game() {
       };
       this.turnChanger();
     } else {
-      throw new Error("Square already occupied, try again")
+      return "Square already occupied, try again"
     };
   };
 

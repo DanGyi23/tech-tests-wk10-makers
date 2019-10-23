@@ -95,4 +95,11 @@ describe("WinCheck", function () {
       expect(check.winCheck()).toEqual(game._player2)
     });
   });
+
+  describe("#winCheck for DRAW", function () {
+    it('Draw when no winner but all squares filled', function () {
+      playGame([0, 1, 4, 2, 5, 3, 6, 8, 7])
+      expect(check.winCheck()).toEqual("DRAW!")
+    });
+  });
 });
