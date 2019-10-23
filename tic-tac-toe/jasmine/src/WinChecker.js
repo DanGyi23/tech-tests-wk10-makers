@@ -35,7 +35,6 @@ function WinChecker(game) {
     }
   }
 
-
   WinChecker.prototype.columnWinCheck = function () {
     if
       (this.arraySelector(0, 3, 6) === PLAYER_1_WIN ||
