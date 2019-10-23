@@ -63,7 +63,7 @@ function Game() {
       (this.arraySelector(0, 3, 6) === PLAYER_2_WIN ||
         this.arraySelector(1, 4, 7) === PLAYER_2_WIN ||
         this.arraySelector(2, 5, 8) === PLAYER_2_WIN) {
-      return this._player1
+      return this._player2
     }
   }
 };
