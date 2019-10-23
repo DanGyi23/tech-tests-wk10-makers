@@ -8,7 +8,12 @@ function Game() {
     if (this._currentTurn === this._player1) {
       this._currentTurn = this._player2
     } else {
-      this._currentTurn = this  ._player1
-    }
-  }
-}
+      this._currentTurn = this._player1
+    };
+  };
+
+  Game.prototype.makeTurn = function(index) {
+    this._board[index] = this._currentTurn._name
+  };
+
+};
