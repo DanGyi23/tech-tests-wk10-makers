@@ -42,5 +42,13 @@ describe("Game", function() {
       expect(game._board[0]).toEqual("X");
       expect(game._board[4]).toEqual("O");
     });
+
+    it("Does not allow you to make turn at already occupied index", function() {
+      expect(game._board[0]).toEqual(undefined)
+      game.makeTurn(0);
+      expect(game._board[0]).toEqual("X");
+      game.makeTurn(0);
+      expect(game._board[0]).toEqual("X");
+    });
   });
 });

@@ -4,17 +4,17 @@ function Game() {
   this._currentTurn = this._player1
   this._board = new Array(9);
 
-  Game.prototype.turnChanger = function() {
+  Game.prototype.makeTurn = function(index) {
+    this._board[index] = this._currentTurn._name
+    this.turnChanger();
+  };
+
+  Game.prototype.turnChanger = function () {
     if (this._currentTurn === this._player1) {
       this._currentTurn = this._player2
     } else {
       this._currentTurn = this._player1
     };
-  };
-
-  Game.prototype.makeTurn = function(index) {
-    this._board[index] = this._currentTurn._name
-    this.turnChanger();
   };
 
 };
