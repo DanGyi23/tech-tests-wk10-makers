@@ -24,6 +24,14 @@ describe("Game", function() {
       expect(game._currentTurn).toEqual(game._player2)
       game.turnChanger();
       expect(game._currentTurn).toEqual(game._player1)
-    })
+    });
+  });
+
+  describe("#storeTurn", function() {
+    it("Stores the first players turn in the board array", function() {
+      expect(game._board[0]).toEqual(undefined)
+      game.makeTurn(0);
+      expect(game._board[0]).toEqual("X");
+    });
   });
 });
