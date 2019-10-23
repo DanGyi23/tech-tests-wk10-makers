@@ -126,5 +126,20 @@ describe("Game", function() {
       playGame([0, 3, 4, 5, 8])
       expect(game.winCheck()).toEqual(game._player1)
     });
+
+    it('P1 wins when top right to bottom left is all X', function () {
+      playGame([2, 3, 4, 5, 6])
+      expect(game.winCheck()).toEqual(game._player1)
+    });
+
+    it('P2 wins when top right to bottom left is all 0', function () {
+      playGame([1, 0, 3, 4, 7, 8])
+      expect(game.winCheck()).toEqual(game._player2)
+    });
+
+    it('P2 wins when top left to bottom right is all 0', function () {
+      playGame([1, 2, 3, 4, 7, 6])
+      expect(game.winCheck()).toEqual(game._player2)
+    });
   });
 });
