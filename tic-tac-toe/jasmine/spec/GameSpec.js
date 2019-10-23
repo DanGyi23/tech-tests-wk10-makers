@@ -120,4 +120,11 @@ describe("Game", function() {
       expect(game.winCheck()).toEqual(game._player2)
     });
   });
+
+  describe("#winCheck for DIAGONALS", function () {
+    it('P1 wins when top left to bottom right is all X', function () {
+      playGame([0, 3, 4, 5, 8])
+      expect(game.winCheck()).toEqual(game._player1)
+    });
+  });
 });
