@@ -27,10 +27,13 @@ function Game() {
   Game.prototype.winCheck = function () {
     let row = this.rowWinCheck();
     let column = this.columnWinCheck();
+    let diagonal = this.diagonalWinCheck();
     if (row !== undefined) {
       return row
     } else if (column !== undefined) {
       return column
+    } else if (diagonal !== undefined) {
+      return diagonal
     }
   };
 
@@ -63,6 +66,18 @@ function Game() {
       (this.arraySelector(0, 3, 6) === PLAYER_2_WIN ||
         this.arraySelector(1, 4, 7) === PLAYER_2_WIN ||
         this.arraySelector(2, 5, 8) === PLAYER_2_WIN) {
+      return this._player2
+    }
+  }
+
+  Game.prototype.diagonalWinCheck = function () {
+    if
+      (this.arraySelector(0, 4, 8) === PLAYER_1_WIN ||
+      this.arraySelector(2, 4, 6) === PLAYER_1_WIN) {
+      return this._player1
+    } else if
+      (this.arraySelector(0, 4, 8) === PLAYER_2_WIN ||
+      this.arraySelector(2, 4, 6) === PLAYER_2_WIN) {
       return this._player2
     }
   }
