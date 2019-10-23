@@ -69,5 +69,14 @@ describe("Game", function() {
       game.makeTurn(5);
       expect(game.winCheck()).toEqual(game._player1)
     });
+
+    it('P1 wins when bottom row is all X', function () {
+      game.makeTurn(6);
+      game.makeTurn(1);
+      game.makeTurn(7);
+      game.makeTurn(2);
+      game.makeTurn(8);
+      expect(game.winCheck()).toEqual(game._player1)
+    });
   });
 });
