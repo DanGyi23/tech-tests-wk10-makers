@@ -4,13 +4,15 @@ function Game() {
   this._player2 = new Player("O");
   this._currentTurn = this._player1
   this._winChecker = new WinChecker(this)
-  
 
-  Game.prototype.makeTurn = function(index) {
-    if (this._board[index] == undefined) {
-    this._board[index] = this._currentTurn._name
-    this._winChecker.winCheck();
-    this.turnChanger();
+
+  Game.prototype.makeTurn = function (index) {
+    if (this._board[index] === undefined) {
+      this._board[index] = this._currentTurn._name
+      if (this._winChecker.winCheck() !== undefined) {
+        return this._winChecker.winCheck();
+      };
+      this.turnChanger();
     } else {
       throw new Error("Square already occupied, try again")
     };
