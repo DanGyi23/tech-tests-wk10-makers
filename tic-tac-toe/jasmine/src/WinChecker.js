@@ -14,7 +14,7 @@ function WinChecker(game) {
       return diagonal
     } else if (!game._board.includes(undefined)) {
       return "DRAW!"
-    }
+    };
   };
 
   WinChecker.prototype.arraySelector = function(pos1,pos2,pos3) {

@@ -1,9 +1,10 @@
 function Game() {
-  this._player1 = new Player(name= "X");
-  this._player2 = new Player(name= "O");
-  this._currentTurn = this._player1
   this._board = new Array(9)
+  this._player1 = new Player("X");
+  this._player2 = new Player("O");
+  this._currentTurn = this._player1
   this._winChecker = new WinChecker(this)
+  
 
   Game.prototype.makeTurn = function(index) {
     if (this._board[index] == undefined) {
