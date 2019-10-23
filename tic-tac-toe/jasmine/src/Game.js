@@ -25,17 +25,15 @@ function Game() {
   };
 
   Game.prototype.winCheck = function() {
-    if (this.arraySlicer(0, 3) === PLAYER_1_WIN) {
+    if 
+    (this.arraySlicer(0, 3) === PLAYER_1_WIN ||
+     this.arraySlicer(3, 6) === PLAYER_1_WIN || 
+     this.arraySlicer(6, 9) === PLAYER_1_WIN) {
       return this._player1
-    } else if (this.arraySlicer(0, 3) === PLAYER_2_WIN) {
-      return this._player2
-    } else if (this.arraySlicer(3, 6) === PLAYER_1_WIN) {
-      return this._player1
-    } else if (this.arraySlicer(3, 6) === PLAYER_2_WIN) {
-      return this._player2
-    } else if (this.arraySlicer(6, 9) === PLAYER_1_WIN) {
-      return this._player1
-    } else if (this.arraySlicer(6, 9) === PLAYER_2_WIN) {
+    } else if 
+    (this.arraySlicer(0, 3) === PLAYER_2_WIN || 
+    this.arraySlicer(3, 6) === PLAYER_2_WIN || 
+    this.arraySlicer(6, 9) === PLAYER_2_WIN) {
       return this._player2
     };
   };
