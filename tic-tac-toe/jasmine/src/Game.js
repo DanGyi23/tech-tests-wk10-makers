@@ -25,7 +25,13 @@ function Game() {
   };
 
   Game.prototype.winCheck = function () {
-    return this.rowWinCheck();
+    let row = this.rowWinCheck();
+    let column = this.columnWinCheck();
+    if (row !== undefined) {
+      return row
+    } else if (column !== undefined) {
+      return column
+    }
   };
 
   Game.prototype.arraySelector = function(pos1,pos2,pos3) {
@@ -46,4 +52,18 @@ function Game() {
     }
   }
 
+
+  Game.prototype.columnWinCheck = function () {
+    if
+      (this.arraySelector(0, 3, 6) === PLAYER_1_WIN ||
+      this.arraySelector(1, 4, 7) === PLAYER_1_WIN ||
+      this.arraySelector(2, 5, 8) === PLAYER_1_WIN) {
+      return this._player1
+    } else if
+      (this.arraySelector(0, 3, 6) === PLAYER_2_WIN ||
+        this.arraySelector(1, 4, 7) === PLAYER_2_WIN ||
+        this.arraySelector(2, 5, 8) === PLAYER_2_WIN) {
+      return this._player1
+    }
+  }
 };
