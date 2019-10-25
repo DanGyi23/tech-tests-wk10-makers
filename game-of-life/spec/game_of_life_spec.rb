@@ -6,6 +6,7 @@ describe GameOfLife do
     @game = GameOfLife.new
     @game1 = GameOfLife.new(initial_board_config1)
     @game2 = GameOfLife.new(initial_board_config2)
+    @game3 = GameOfLife.new(initial_board_config3)
   end
 
   describe '#tick' do
@@ -28,6 +29,14 @@ describe GameOfLife do
         @game2.tick
         expect(@game2.board_array[75]).to eq(1)
         expect(@game2.board_array[63]).to eq(1)
+      end
+    end
+
+    describe 'non-survivors (underpopulation)' do
+      it 'Any live cell with less than 2 neighbours dies (underpopulation)' do
+        @game3.tick
+        expect(@game3.live_neighbour_total(@game3.board_array, 77)).to eq 0
+        expect(@game3.board_array[77]).to eq(0)
       end
     end
   end
