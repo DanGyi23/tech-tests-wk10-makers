@@ -15,12 +15,12 @@ The rules are as follows:
 - This can be achieved using stepwise modulus division to return an index within the constraints of 0 < index < array.length:
 
 ```
-getElementAt(arr, index) {
+def get_element_at(arr, index) 
   index = index % arr.length;
   index = index + arr.length;
   index = index % arr.length;
   return arr[index]
-}
+end
 ```
 
 - For the purpose of testing, I could start with a 1D array and test those index - 1 and index + 1, but this seems like it would run in to lots of refactoring very quickly, so ideally I'd design the play-area before actually testing a single 'tick'
