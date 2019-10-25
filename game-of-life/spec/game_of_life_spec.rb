@@ -34,9 +34,17 @@ describe GameOfLife do
 
     describe 'non-survivors (underpopulation)' do
       it 'Any live cell with less than 2 neighbours dies (underpopulation)' do
+        expect(@game3.board_array[77]).to eq(1)
         @game3.tick
         expect(@game3.live_neighbour_total(@game3.board_array, 77)).to eq 0
         expect(@game3.board_array[77]).to eq(0)
+      end
+
+      it 'Any live cell with less than 2 neighbours dies (underpopulation)' do
+        expect(@game3.board_array[49]).to eq(1)
+        @game3.tick
+        expect(@game3.live_neighbour_total(@game3.board_array, 49)).to eq 0
+        expect(@game3.board_array[49]).to eq(0)
       end
     end
   end
