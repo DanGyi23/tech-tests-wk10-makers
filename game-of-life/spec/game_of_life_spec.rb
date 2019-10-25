@@ -14,16 +14,20 @@ describe GameOfLife do
     end
 
     it 'returns an array' do
-      expect(@game.tick(@game.board_array)).to be_kind_of Array
+      expect(@game.tick).to be_kind_of Array
     end
 
     describe 'survivors' do
       it 'Any live cell with 2 or 3 live neighbours survives until next tick' do
-        expect(@game1.tick(@game1.board_array)).to eq(@game1.board_array)
+        @game1.tick
+        expect(@game1.board_array[62]).to eq(1)
+        expect(@game1.board_array[44]).to eq(1)
       end
 
       it 'Any live cell with 2 or 3 live neighbours survives until next tick' do
-        expect(@game2.tick(@game2.board_array)).to eq(@game2.board_array)
+        @game2.tick
+        expect(@game2.board_array[75]).to eq(1)
+        expect(@game2.board_array[63]).to eq(1)
       end
     end
   end

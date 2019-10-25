@@ -5,8 +5,8 @@ class GameOfLife
     @board_array = array
   end
   
-  def tick(array)
-    array
+  def tick
+    []
   end
 
   def get_element_at(arr, index)
