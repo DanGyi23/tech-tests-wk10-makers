@@ -21,7 +21,13 @@ describe GameOfLife do
 
     it 'returns an array' do
       expect(@game.tick(@game.board_array)).to be_kind_of Array
-    end    
+    end
+
+    describe 'survivors' do
+      it 'Any live cell with 2 or 3 live neighbours survives until next tick' do
+        expect(@game1.tick(@game1.board_array)).to eq(@game1.board_array)
+      end
+    end
   end
 
   describe '#initialize' do
@@ -41,9 +47,5 @@ describe GameOfLife do
     end
   end
 
-  describe '#survivors' do
-    it 'Any live cell with 2 or 3 live neighbours survives until next tick' do
-      expect(@game.tick(@game.board_array)).to eq(@game.board_array)
-    end
-  end
+  
 end
