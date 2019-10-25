@@ -2,7 +2,7 @@ class GameOfLife
   attr_reader :board_array
   
   def initialize
-    @board_array = Array.new(100)
+    @board_array = Array.new(100, 0)
   end
   
   def tick
