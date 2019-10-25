@@ -36,14 +36,12 @@ describe GameOfLife do
       it 'Any live cell with less than 2 neighbours dies (underpopulation)' do
         expect(@game3.board_array[77]).to eq(1)
         @game3.tick
-        expect(@game3.live_neighbour_total(@game3.board_array, 77)).to eq 0
         expect(@game3.board_array[77]).to eq(0)
       end
 
       it 'Any live cell with less than 2 neighbours dies (underpopulation)' do
         expect(@game3.board_array[49]).to eq(1)
         @game3.tick
-        expect(@game3.live_neighbour_total(@game3.board_array, 49)).to eq 0
         expect(@game3.board_array[49]).to eq(0)
       end
     end
@@ -51,26 +49,26 @@ describe GameOfLife do
 
   describe '#live_neighbour_total' do
     it 'counts the number of live neighbours to current index (test config 1)' do
-      expect(@game1.live_neighbour_total(@game1.board_array, 62)).to eq 2
-      expect(@game1.live_neighbour_total(@game1.board_array, 75)).to eq 6
+      expect(@game1.live_neighbour_total(62)).to eq 2
+      expect(@game1.live_neighbour_total(75)).to eq 6
     end
 
     it 'counts the number of live neighbours to current index (test config 2)' do
-      expect(@game2.live_neighbour_total(@game.board_array, 88)).to eq 3
-      expect(@game2.live_neighbour_total(@game.board_array, 75)).to eq 2
-      expect(@game2.live_neighbour_total(@game.board_array, 61)).to eq 3
+      expect(@game2.live_neighbour_total(88)).to eq 3
+      expect(@game2.live_neighbour_total(75)).to eq 2
+      expect(@game2.live_neighbour_total(61)).to eq 3
     end
   end
 
   describe '#initialize' do
     it 'initializes with an array that reads continuously' do
       @game.board_array[1] = "read me"
-      expect(@game.get_element_at(@game.board_array, (99 + 2))).to eq("read me")
+      expect(@game.get_element_at((99 + 2))).to eq("read me")
     end
 
     it 'initializes with an array that reads continuously' do
       @game.board_array[4] = "read me"
-      expect(@game.get_element_at(@game.board_array, (99 + 5))).to eq("read me")
+      expect(@game.get_element_at((99 + 5))).to eq("read me")
     end
 
     it 'initializes with an initial configuration of 1(live) and 0(dead) values' do
