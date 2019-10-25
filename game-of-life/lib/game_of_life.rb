@@ -13,6 +13,8 @@ class GameOfLife
       element = 0
     elsif element == 1 && live_neighbour_total(index) > 3
       element = 0
+    elsif element == 0 && live_neighbour_total(index) == 3
+      element = 1
     end
     }
   end
