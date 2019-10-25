@@ -2,7 +2,7 @@ require 'game_of_life'
 
 describe GameOfLife do
 
-  def initial_board_config
+  def initial_board_config1
     @board_array = Array.new(100, 0)
     @board_array = @board_array.map.with_index(0) { |element, index|
       index % 2 == 0 ? element = 1 : element = 0
@@ -10,8 +10,9 @@ describe GameOfLife do
   end
 
   before(:each) do
-      @game = GameOfLife.new
-    end
+    @game = GameOfLife.new
+    @game1 = GameOfLife.new(initial_board_config1)
+  end
 
   describe '#tick' do
     it 'responds to the method tick' do
@@ -35,9 +36,8 @@ describe GameOfLife do
     end
 
     it 'initializes with an initial configuration of 1(live) and 0(dead) values' do
-      @game2 = GameOfLife.new(initial_board_config)
-      expect(@game2.board_array.sum).to be > 0
-      expect(@game2.board_array.sum).to be < 100
+      expect(@game1.board_array.sum).to be > 0
+      expect(@game1.board_array.sum).to be < 100
     end
   end
 
