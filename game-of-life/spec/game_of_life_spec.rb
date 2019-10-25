@@ -15,5 +15,11 @@ describe GameOfLife do
       @game.board_array[1] = "read me"
       expect(@game.get_element_at(@game.board_array, (99 + 2))).to eq("read me")
     end
+
+     it 'initializes with an array that reads continuously' do
+      @game = GameOfLife.new
+      @game.board_array[4] = "read me"
+      expect(@game.get_element_at(@game.board_array, (99 + 5))).to eq("read me")
+    end
   end
 end
