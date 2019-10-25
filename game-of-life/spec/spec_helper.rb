@@ -36,6 +36,13 @@ RSpec.configure do |config|
     }
   end
 
+  def initial_board_config4
+    @board_array = Array.new(100, 0)
+    @board_array = @board_array.map.with_index(0) { |element, index|
+      index % 2 != 0 ? element = 1 : element = 0
+    }
+  end
+
 
 
 
