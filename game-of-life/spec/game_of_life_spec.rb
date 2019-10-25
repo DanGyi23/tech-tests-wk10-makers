@@ -2,16 +2,12 @@ require 'game_of_life'
 
 describe GameOfLife do
 
-  def initial_board_config1
-    @board_array = Array.new(100, 0)
-    @board_array = @board_array.map.with_index(0) { |element, index|
-      index % 2 == 0 ? element = 1 : element = 0
-    }
-  end
+
 
   before(:each) do
     @game = GameOfLife.new
     @game1 = GameOfLife.new(initial_board_config1)
+    @game2 = GameOfLife.new(initial_board_config2)
   end
 
   describe '#tick' do
@@ -26,6 +22,10 @@ describe GameOfLife do
     describe 'survivors' do
       it 'Any live cell with 2 or 3 live neighbours survives until next tick' do
         expect(@game1.tick(@game1.board_array)).to eq(@game1.board_array)
+      end
+
+      it 'Any live cell with 2 or 3 live neighbours survives until next tick' do
+        expect(@game2.tick(@game2.board_array)).to eq(@game2.board_array)
       end
     end
   end

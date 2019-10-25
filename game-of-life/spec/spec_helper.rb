@@ -14,6 +14,24 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  def initial_board_config1
+    @board_array = Array.new(100, 0)
+    @board_array = @board_array.map.with_index(0) { |element, index|
+      index % 2 == 0 ? element = 1 : element = 0
+    }
+  end
+
+  def initial_board_config2
+    @board_array = Array.new(100, 0)
+    @board_array = @board_array.map.with_index(0) { |element, index|
+      index % 3 == 0 ? element = 1 : element = 0
+    }
+  end
+
+
+
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
