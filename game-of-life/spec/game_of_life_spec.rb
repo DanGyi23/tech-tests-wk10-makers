@@ -11,7 +11,7 @@ describe GameOfLife do
     end
 
     it 'returns an array' do
-      expect(@game.tick).to be_kind_of Array
+      expect(@game.tick(@game.board_array)).to be_kind_of Array
     end    
   end
 
@@ -29,6 +29,12 @@ describe GameOfLife do
     it 'initializes with an initial configuration of 1(live) and 0(dead) values' do
       expect(@game.initial_board_config.sum).to be > 20
       expect(@game.initial_board_config.sum).to be < 80
+    end
+  end
+
+  describe '#survivors' do
+    it 'Any live cell with 2 or 3 live neighbours survives until next tick' do
+      expect(@game.tick(@game.board_array)).to eq(@game.initial_board_config)
     end
   end
 end
