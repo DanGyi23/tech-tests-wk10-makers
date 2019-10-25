@@ -33,3 +33,17 @@ getElementAt(arr, index) {
 3) Advance (x) iterations, you can give the user a change to enter a number. This will work like START but stop after x iterations.
 
 #### Tests
+
+- Program responds to a tick
+- Tick iterates through array and returns NEW OBJECT
+- Test array construction
+    - For array length 100, arr[99 + 1] is equivalent to arr[0]
+- On tick
+    - Any live cell with 2 or 3 live neighbours survives until next tick
+        [permutation generator](https://repl.it/repls/SwelteringTediousSolaris)
+    - Any live cell with less than 2 live neighbours dies (underpopulation)
+        - possible permutations to test: [-11,-10,-9,-1,+1,+9,+10,+11]
+    - Any live cell with more than 3 live neighbours dies (overpopulation)
+        - Too many permutations to list [find here](https://repl.it/repls/SwelteringTediousSolaris)
+    - Any dead cell with exactly 3 neighbours becomes a live cell (reproduction)
+- Test state of multiple adjacent cells as part of test to make sure it's all happening concurrently
