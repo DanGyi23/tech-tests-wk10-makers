@@ -11,7 +11,7 @@ The rules are as follows:
 
 #### Ideation
 
-- Ideally I'd create a toroid style array, with a fixed 2D column/row height, so that a given element can reference those immediately adjacent using 8 fixed transformation values (e.g. element[index + 1])
+- Ideally I'd create a toroid style array, with a fixed 2D column/row height (10x10), so that a given element can reference those immediately adjacent using 8 fixed transformation values (e.g. element[index + 1], element[index + 11])
 - This can be achieved using stepwise modulus division to return an index within the constraints of 0 < index < array.length:
 
 ```

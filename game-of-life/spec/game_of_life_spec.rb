@@ -25,5 +25,10 @@ describe GameOfLife do
       @game.board_array[4] = "read me"
       expect(@game.get_element_at(@game.board_array, (99 + 5))).to eq("read me")
     end
+
+    it 'initializes with an initial configuration of 1(live) and 0(dead) values' do
+      expect(@game.board_array.sum).to be > 20
+      expect(@game.board_array.sum).to be < 80
+    end
   end
 end
