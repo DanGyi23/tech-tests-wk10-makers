@@ -16,17 +16,10 @@ class GameOfLife
     return arr[index]
   end
 
-  def live_neighbour_counter(arr, current_index)
-    get_element_at(@board_array, current_index + 1) +
-    get_element_at(@board_array, current_index - 1) +
-    get_element_at(@board_array, current_index + 10) +
-    get_element_at(@board_array, current_index - 10) +
-    get_element_at(@board_array, current_index + 9) +
-    get_element_at(@board_array, current_index - 9) +
-    get_element_at(@board_array, current_index + 11) +
-    get_element_at(@board_array, current_index - 11)
+  def live_neighbour_total(arr, current_index)
+    [1,-1,10,-10,9,-9,11,-11].map { |x| 
+    x = get_element_at(@board_array, current_index + x)
+    }.reduce(:+)
   end
 
-
-  
 end
