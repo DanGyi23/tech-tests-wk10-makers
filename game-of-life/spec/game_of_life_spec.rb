@@ -27,14 +27,14 @@ describe GameOfLife do
     end
 
     it 'initializes with an initial configuration of 1(live) and 0(dead) values' do
-      expect(@game.initial_board_config.sum).to be > 20
-      expect(@game.initial_board_config.sum).to be < 80
+      expect(@game.board_array.sum).to be > 0
+      expect(@game.board_array.sum).to be < 100
     end
   end
 
   describe '#survivors' do
     it 'Any live cell with 2 or 3 live neighbours survives until next tick' do
-      expect(@game.tick(@game.board_array)).to eq(@game.initial_board_config)
+      expect(@game.tick(@game.board_array)).to eq(@game.board_array)
     end
   end
 end
