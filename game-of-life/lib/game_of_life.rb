@@ -3,7 +3,6 @@ class GameOfLife
   
   def initialize(array= Array.new(100, 0))
     @board_array = array
-    # initial_board_config
   end
   
   def tick(array)
@@ -15,6 +14,17 @@ class GameOfLife
     index = index + arr.length;
     index = index % arr.length;
     return arr[index]
+  end
+
+  def live_neighbour_counter(arr, current_index)
+    get_element_at(@board_array, current_index + 1) +
+    get_element_at(@board_array, current_index - 1) +
+    get_element_at(@board_array, current_index + 10) +
+    get_element_at(@board_array, current_index - 10) +
+    get_element_at(@board_array, current_index + 9) +
+    get_element_at(@board_array, current_index - 9) +
+    get_element_at(@board_array, current_index + 11) +
+    get_element_at(@board_array, current_index - 11)
   end
 
 

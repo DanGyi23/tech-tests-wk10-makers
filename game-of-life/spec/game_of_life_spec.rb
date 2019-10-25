@@ -2,8 +2,6 @@ require 'game_of_life'
 
 describe GameOfLife do
 
-
-
   before(:each) do
     @game = GameOfLife.new
     @game1 = GameOfLife.new(initial_board_config1)
@@ -30,6 +28,20 @@ describe GameOfLife do
     end
   end
 
+  describe '#live_neighbour_counter' do
+    it 'counts the number of live neighbours to current index (test config 1)' do
+      expect(@game2.live_neighbour_counter(@game.board_array, 88)).to eq 3
+      expect(@game2.live_neighbour_counter(@game.board_array, 75)).to eq 2
+      expect(@game2.live_neighbour_counter(@game.board_array, 61)).to eq 3
+    end
+
+    it 'counts the number of live neighbours to current index (test config 2)' do
+      expect(@game2.live_neighbour_counter(@game.board_array, 88)).to eq 3
+      expect(@game2.live_neighbour_counter(@game.board_array, 75)).to eq 2
+      expect(@game2.live_neighbour_counter(@game.board_array, 61)).to eq 3
+    end
+  end
+
   describe '#initialize' do
     it 'initializes with an array that reads continuously' do
       @game.board_array[1] = "read me"
@@ -46,6 +58,4 @@ describe GameOfLife do
       expect(@game1.board_array.sum).to be < 100
     end
   end
-
-  
 end
