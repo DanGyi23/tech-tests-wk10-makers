@@ -27,8 +27,8 @@ describe GameOfLife do
     end
 
     it 'initializes with an initial configuration of 1(live) and 0(dead) values' do
-      expect(@game.board_array.sum).to be > 20
-      expect(@game.board_array.sum).to be < 80
+      expect(@game.initial_board_config.sum).to be > 20
+      expect(@game.initial_board_config.sum).to be < 80
     end
   end
 end

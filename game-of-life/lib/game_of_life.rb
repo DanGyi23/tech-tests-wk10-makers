@@ -2,7 +2,7 @@ class GameOfLife
   attr_reader :board_array
   
   def initialize
-    @board_array = Array.new(100, 0)
+    initial_board_config
   end
   
   def tick
@@ -15,4 +15,12 @@ class GameOfLife
     index = index % arr.length;
     return arr[index]
   end
+
+  def initial_board_config
+    @board_array = Array.new(100, 0)
+    @board_array.map.with_index(0) { |element, index|
+      index % 2 == 0 ? element = 1 : element = 0
+    }
+  end
+  
 end
