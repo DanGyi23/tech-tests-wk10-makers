@@ -60,6 +60,20 @@ describe GameOfLife do
         expect(@game4.board_array[33]).to eq(0)
       end
     end
+
+    describe 'reproducers' do
+      it 'Any dead cell with exactly 3 neighbours becomes a live cell (reproduction)' do
+        expect(@game2.board_array[61]).to eq(0)
+        @game2.tick
+        expect(@game2.board_array[61]).to eq(1)
+      end
+
+      it 'Any dead cell with exactly 3 neighbours becomes a live cell (reproduction)' do
+        expect(@game2.board_array[55]).to eq(0)
+        @game2.tick
+        expect(@game2.board_array[55]).to eq(1)
+      end
+    end
   end
 
   describe '#live_neighbour_total' do
