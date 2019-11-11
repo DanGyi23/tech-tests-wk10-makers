@@ -1,5 +1,8 @@
 GameOfLife = function() {
     this._board_array = new Array(1000)
+    this._board_array.forEach(function(element) {
+      element = Math.random().round()
+    });
     
     
     GameOfLife.prototype.tick = function() {
@@ -33,13 +36,3 @@ GameOfLife = function() {
     };
 
 };
-
-
-
-// def live_neighbour_total(current_index)
-// [1, -1, 100, -100, 99, -99, 101, -101].map { | x |
-//   x = get_element_at(current_index + x)
-// }.reduce(: +)
-// end
-
-// end
