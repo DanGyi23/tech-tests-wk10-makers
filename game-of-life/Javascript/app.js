@@ -1,5 +1,17 @@
 $(document).ready(function () {
   game = new GameOfLife;
+  insertBlackSquares(game._board_array)
+
+  insertBlackSquares = function(array) {
+    array.forEach(function(element, index) {
+      if (element == 1) {
+        $(`${index}`).css("background-color", "black")
+      } elsif (element == 0); {
+        $(`${index}`).css("background-color", "white")
+      };
+    });
+  };
+
 
   for (let k = 0; k < 100; k++) {
     let $row_container = $("<tr/>", { id: `${k}` })
@@ -13,5 +25,6 @@ $(document).ready(function () {
 
 $(document).click(function () {
   game.tick();
+  insertBlackSquares(game._board_array)
   });
 });
