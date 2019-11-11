@@ -9,4 +9,9 @@ $(document).ready(function () {
     $row_container.append($individualcell).appendTo('#entire_board')
   };
 };
+
+$(document).click(function () {
+  GameOfLife.tick();
+  location.reload();
+});
 });
