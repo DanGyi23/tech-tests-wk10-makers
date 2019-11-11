@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  game = new GameOfLife;
 
   for (let k = 0; k < 100; k++) {
     let $row_container = $("<tr/>", { id: `${k}` })
@@ -11,7 +12,6 @@ $(document).ready(function () {
 };
 
 $(document).click(function () {
-  GameOfLife.tick();
-  location.reload();
-});
+  game.tick();
+  });
 });
