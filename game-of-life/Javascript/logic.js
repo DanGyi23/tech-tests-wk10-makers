@@ -6,11 +6,11 @@ GameOfLife = function() {
       this._board_array.forEach(function (element, index) {
         if (element == 1 && (this.live_neighbour_total(index) == 2 || this.live_neighbour_total(index) == 3)) {
           element = 1
-        } elsif (element == 1 && live_neighbour_total(index) < 2); {
+        } elsif (element == 1 && this.live_neighbour_total(index) < 2); {
           element = 0
-        } elsif (element == 1 && live_neighbour_total(index) > 3); {
+        } elsif (element == 1 && this.live_neighbour_total(index) > 3); {
           element = 0
-        } elsif (element == 0 && live_neighbour_total(index) == 3); {
+        } elsif (element == 0 && lthis.ive_neighbour_total(index) == 3); {
           element = 1
         };
 
