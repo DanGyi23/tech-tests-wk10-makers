@@ -16,28 +16,28 @@
 RSpec.configure do |config|
 
   def initial_board_config1
-    @board_array = Array.new(100, 0)
+    @board_array = Array.new(1000, 0)
     @board_array = @board_array.map.with_index(0) { |element, index|
       index % 2 == 0 ? element = 1 : element = 0
     }
   end
 
   def initial_board_config2
-    @board_array = Array.new(100, 0)
+    @board_array = Array.new(1000, 0)
     @board_array = @board_array.map.with_index(0) { |element, index|
       index % 3 == 0 ? element = 1 : element = 0
     }
   end
 
   def initial_board_config3
-    @board_array = Array.new(100, 0)
+    @board_array = Array.new(1000, 0)
     @board_array = @board_array.map.with_index(0) { |element, index|
       index % 7 == 0 ? element = 1 : element = 0
     }
   end
 
   def initial_board_config4
-    @board_array = Array.new(100, 1)
+    @board_array = Array.new(1000, 1)
   end
 
 

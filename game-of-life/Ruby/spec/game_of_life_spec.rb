@@ -92,17 +92,17 @@ describe GameOfLife do
   describe '#initialize' do
     it 'initializes with an array that reads continuously' do
       @game.board_array[1] = "read me"
-      expect(@game.get_element_at((99 + 2))).to eq("read me")
+      expect(@game.get_element_at((999 + 2))).to eq("read me")
     end
 
     it 'initializes with an array that reads continuously' do
       @game.board_array[4] = "read me"
-      expect(@game.get_element_at((99 + 5))).to eq("read me")
+      expect(@game.get_element_at((999 + 5))).to eq("read me")
     end
 
     it 'initializes with an initial configuration of 1(live) and 0(dead) values' do
       expect(@game1.board_array.sum).to be > 0
-      expect(@game1.board_array.sum).to be < 100
+      expect(@game1.board_array.sum).to be < 1000
     end
   end
 end

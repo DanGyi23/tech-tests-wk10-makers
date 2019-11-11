@@ -1,7 +1,7 @@
 class GameOfLife
   attr_accessor :board_array
   
-  def initialize(array= Array.new(100, 0))
+  def initialize(array= Array.new(1000, 0))
     @board_array = array
   end
   
@@ -27,7 +27,7 @@ class GameOfLife
   end
 
   def live_neighbour_total(current_index)
-    [1,-1,10,-10,9,-9,11,-11].map { |x| 
+    [1,-1,100,-100,99,-99,101,-101].map { |x| 
     x = get_element_at(current_index + x)
     }.reduce(:+)
   end
