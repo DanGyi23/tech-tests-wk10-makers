@@ -4,9 +4,6 @@ GameOfLife = function() {
     for (let i = 0; i < 10000; i++ ) {
       board_array.push(Math.round(Math.random()));
     }
-    console.log(this._board_array)
-  
-    
     
     GameOfLife.prototype.tick = function() {
       board_array.forEach(function (element, index) {
@@ -25,17 +22,21 @@ GameOfLife = function() {
     };
 
     GameOfLife.prototype.getElementAt = function(index) {
-      corrected_index = board_array[(index % board_array.length)]
-      return corrected_index
+      index = index % board_array.length;
+      index = index + board_array.length;
+      index = index % board_array.length;
+
+      return index
     };
 
     GameOfLife.prototype.live_neighbour_total = function(index) {
       referential_array = [1, -1, 100, -100, 99, -99, 101, -101]
       
-      referential_array.forEach(function(x) {
-        x = GameOfLife.prototype.getElementAt((index + x))
+      values_array = referential_array.map(function(element, index) {
+        element = GameOfLife.prototype.getElementAt((element + index))
+        return element
       });
-      return referential_array
+      return values_array
     };
 
 };

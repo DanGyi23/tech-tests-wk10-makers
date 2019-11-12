@@ -5,7 +5,6 @@ $(document).ready(function () {
   insertBlackSquares = function(array) {
     array.forEach(function(element, index) {
       if (element === 1) {
-        console.log("Yes, here!")
         $(`#${index}`).css("background-color", "black")
       } else if (element === 0) {
         $(`#${index}`).css("background-color", "white")
@@ -28,6 +27,7 @@ $(document).ready(function () {
 
 $(document).click(function () {
   game.tick();
+  // console.log(game._board_array)
   insertBlackSquares(game._board_array)
   });
 });
