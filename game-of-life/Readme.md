@@ -1,7 +1,9 @@
 # Game of Life
 
-[Conways Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
-[Planning Document](https://github.com/DanGyi23/tech-tests-wk10-makers/blob/master/game-of-life/Ruby/planning.md)
+[Conways Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)  
+[Planning Document](https://github.com/DanGyi23/tech-tests-wk10-makers/blob/master/game-of-life/Ruby/planning.md)  
+
+![](https://github.com/DanGyi23/tech-tests-wk10-makers/blob/master/game-of-life/Docs/game_of_life.gif)
 
 ### To Run
 
