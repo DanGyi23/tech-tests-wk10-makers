@@ -26,17 +26,20 @@ GameOfLife = function() {
       index = index + board_array.length;
       index = index % board_array.length;
 
-      return index
+      return board_array[index]
     };
 
-    GameOfLife.prototype.live_neighbour_total = function(index) {
+    GameOfLife.prototype.live_neighbour_total = function(main_index) {
       referential_array = [1, -1, 100, -100, 99, -99, 101, -101]
       
-      values_array = referential_array.map(function(element, index) {
-        element = GameOfLife.prototype.getElementAt((element + index))
+      values_array = referential_array.map(function(element) {
+        element = GameOfLife.prototype.getElementAt((element + main_index))
         return element
       });
-      return values_array
+      total = values_array.reduce(function (accumulator, currentValue) {
+        return accumulator + currentValue;
+      }, 0);
+      return total
     };
 
 };
