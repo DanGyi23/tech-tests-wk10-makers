@@ -2,7 +2,7 @@ GameOfLife = function() {
     var board_array = []
     this._board_array = board_array
     for (let i = 0; i < 10000; i++ ) {
-      board_array.push(Math.round(Math.random() * 0.7));
+      board_array.push(Math.round(Math.random() * 0.66));
     }
     
     GameOfLife.prototype.tick = function() {
