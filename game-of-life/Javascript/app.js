@@ -4,10 +4,11 @@ $(document).ready(function () {
 
   insertBlackSquares = function(array) {
     array.forEach(function(element, index) {
-      if (element == 1) {
-        $(`${index}`).css("background-color", "black")
-      } else if (element == 0); {
-        $(`${index}`).css("background-color", "white")
+      if (element === 1) {
+        console.log("Yes, here!")
+        $(`#${index}`).css("background-color", "black")
+      } else if (element === 0) {
+        $(`#${index}`).css("background-color", "white")
       };
     });
   };
@@ -16,11 +17,11 @@ $(document).ready(function () {
 
 
   for (let k = 0; k < 100; k++) {
-    let $row_container = $("<tr/>", { id: `${k}` })
+    let $row_container = $("<tr/>")
   for (let i = 0; i < 100; i++) {
     
     $individualcell = $("<td/>", {
-      id: `${(k * 100) + i}`, style: 'border: 3px solid black; padding: 8px' })
+      id: `${(k * 100) + i}`, style: 'border: 1px solid black; padding: 8px' })
     $row_container.append($individualcell).appendTo('#entire_board')
   };
 };
