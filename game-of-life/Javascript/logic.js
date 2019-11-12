@@ -1,19 +1,20 @@
 GameOfLife = function() {
-    this._board_array = new Array(1000)
-    this._board_array.forEach(function(element) {
-      element = Math.random().round()
-    });
+    this._board_array = []
+    for (let i = 0; i < 1000; i++ ) {
+      this._board_array.push(Math.round(Math.random()));
+    }
+  
     
     
     GameOfLife.prototype.tick = function() {
       this._board_array.forEach(function (element, index) {
         if (element == 1 && (this.live_neighbour_total(index) == 2 || this.live_neighbour_total(index) == 3)) {
           element = 1
-        } elsif (element == 1 && this.live_neighbour_total(index) < 2); {
+        } else if (element == 1 && this.live_neighbour_total(index) < 2) {
           element = 0
-        } elsif (element == 1 && this.live_neighbour_total(index) > 3); {
+        } else if (element == 1 && this.live_neighbour_total(index) > 3) {
           element = 0
-        } elsif (element == 0 && lthis.ive_neighbour_total(index) == 3); {
+        } else if (element == 0 && this.live_neighbour_total(index) == 3) {
           element = 1
         };
 

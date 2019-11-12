@@ -6,7 +6,7 @@ $(document).ready(function () {
     array.forEach(function(element, index) {
       if (element == 1) {
         $(`${index}`).css("background-color", "black")
-      } elsif (element == 0); {
+      } else if (element == 0); {
         $(`${index}`).css("background-color", "white")
       };
     });
