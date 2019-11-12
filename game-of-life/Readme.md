@@ -15,6 +15,8 @@
 - I worked in basic JQuery to visualise the playing area. This could be taken further to have a start/stop button that loops with a delay.
 - I decided to build the logic in Ruby first then transpose to JS. This was both to understand the problem and practise both languages. Currently the Ruby logic has no front-end output, though something like HTTP-party would suffice.
 
+- For a more sparse initial configuration, the 
+
 - To make referencing neighbours continuous, and ensure that there were no edge cases in referencing at the start and end of the array, I created a toroidal array (continuously reads from last element to first element, for example (last-index + 10) == 9th index). This just used basic logic to refer to the desired index:
 
 ```
