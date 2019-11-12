@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
   };
 
-  insertBlackSquares(game._board_array)
+  insertBlackSquares(game._board_array);
 
 
   for (let k = 0; k < 100; k++) {
@@ -25,9 +25,8 @@ $(document).ready(function () {
   };
 };
 
-$(document).click(function () {
+$(document).on( "click", function () {
   game.tick();
-  // console.log(game._board_array)
   insertBlackSquares(game._board_array)
   });
 });
