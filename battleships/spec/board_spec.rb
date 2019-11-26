@@ -21,7 +21,7 @@ describe Board do
       expect(subject.board[3][4]).to eq(@tug)
     end
 
-    it 'allows you to place a ship object of any length on given coords' do
+    it 'allows you to place a ship object of any length on given coords - horizontal' do
       subject.place_ship(@battleship, [1,1], [1,5])
       expect(subject.board[1][1]).to eq(@battleship)
       expect(subject.board[1][2]).to eq(@battleship)
@@ -29,6 +29,17 @@ describe Board do
       expect(subject.board[1][4]).to eq(@battleship)
       expect(subject.board[1][5]).to eq(@battleship)
     end
+
+    it 'allows you to place a ship object of any length on given coords - diagonal' do
+      subject.place_ship(@battleship, [1,1], [5,5])
+      expect(subject.board[1][1]).to eq(@battleship)
+      expect(subject.board[2][2]).to eq(@battleship)
+      expect(subject.board[3][3]).to eq(@battleship)
+      expect(subject.board[4][4]).to eq(@battleship)
+      expect(subject.board[5][5]).to eq(@battleship)
+    end
+
+
 
     it 'does not allow you to place outside board constraints' do
       expect{subject.place_ship(@tug, [6,6], [7,7])}.not_to raise_error()
