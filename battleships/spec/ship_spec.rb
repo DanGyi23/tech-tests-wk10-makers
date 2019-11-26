@@ -1,8 +1,8 @@
 require 'ship'
 
 describe Ship do
-  before(:each) do
-    @tug = Ship.new(4)
+    before(:each) do
+    @tug = Ship.new(2)
   end
   describe '#initialize' do
     it 'initializes with a ship_length' do
