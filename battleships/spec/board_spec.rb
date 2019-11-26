@@ -19,6 +19,7 @@ describe Board do
     end
 
     it 'does not allow you to place outside board constraints' do
+      expect{subject.place_ship(@dbl, [6,6],[7,7])}.not_to raise_error()
       expect{subject.place_ship(@dbl, [8,8],[9,9])}.to raise_error("coordinates not valid")
     end
   end
