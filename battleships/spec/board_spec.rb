@@ -12,10 +12,14 @@ describe Board do
   end
 
   describe '#place_ship' do
-    it 'allows you to place a ship object given coordinates' do
+    it 'allows you to place a ship object of length 2 on given coordinates' do
       subject.place_ship(@dbl, [3,3], [3,4])
       expect(subject.board[3][3]).to eq(@dbl)
       expect(subject.board[3][4]).to eq(@dbl)
+    end
+
+    it 'does not allow you to place outside board constraints' do
+      expect{subject.place_ship(@dbl, [8,8],[9,9])}.to raise_error(NoMethodError)
     end
   end
 end
