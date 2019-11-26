@@ -39,8 +39,8 @@ describe Board do
       expect(subject.board[5][5]).to eq(@battleship)
     end
 
-    it 'allows you to place a ship object of any length on given coords - diagonal 1' do
-      subject.place_ship(@battleship, [1,1], [5,5])
+    it 'allows you to place a ship object of any length on given coords - diagonal 2' do
+      subject.place_ship(@battleship, [1,5], [5,1])
       expect(subject.board[1][5]).to eq(@battleship)
       expect(subject.board[2][4]).to eq(@battleship)
       expect(subject.board[3][3]).to eq(@battleship)
