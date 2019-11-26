@@ -3,8 +3,8 @@ require 'board'
 describe Board do
 
   before(:each) do
-    @tug = double("ship", :ship_length => 2)
-    @battleship = double("ship", :ship_length => 5)
+    @tug = double(Ship, :ship_length => 2)
+    @battleship = double(Ship, :ship_length => 5)
   end
 
   describe '#initialize' do
@@ -28,6 +28,7 @@ describe Board do
 
     it 'does not allow ships to overlap' do
       subject.place_ship(@tug, [2,2], [2,3])
+      p subject.board[2][2]
       expect{ subject.place_ship(@battleship, [2,2], [6,2]) }.to raise_error("cannot place 2 ships in one place")
     end
   end
