@@ -21,7 +21,7 @@ class Board
     elsif start_coords[0] > end_coords[0]
       row_range = start_coords[0].downto(end_coords[0]).to_a
     else
-      row_range = [start_coords[0],start_coords[0] ,start_coords[0] ,start_coords[0] ,start_coords[0]]
+      row_range = Array.new(ship.ship_length, start_coords[0])
     end
 
     if start_coords[1] < end_coords[1]
@@ -29,7 +29,7 @@ class Board
     elsif start_coords[1] > end_coords[1]
       col_range = start_coords[1].downto(end_coords[1]).to_a
     else
-      col_range = [start_coords[1],start_coords[1] ,start_coords[1] ,start_coords[1] ,start_coords[1]]
+      col_range = Array.new(ship.ship_length, start_coords[1])
     end
 
     placed_ship_coordinates = row_range.zip(col_range)
